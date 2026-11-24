@@ -3,6 +3,7 @@ import { db } from '../data/db';
 import { META } from '../data/recalcService';
 import { currentSummary, type Summary } from '../domain/summary';
 import { useToday } from './useToday';
+import type { WeekOverride } from '../domain/sport/types';
 import type { Profile, Measurement, CalcSnapshot, DailyLog, WorkoutLog, MealTag } from '../types';
 
 export interface AppData {
@@ -18,6 +19,10 @@ export interface AppData {
   mealRatings: { date: string; meal: MealTag; conformity?: 'yes' | 'almost' | 'no' }[];
   /** Clés des alertes déjà lues (alert:<type>:<semaine>) */
   dismissedAlerts: Set<string>;
+  /** Semaine de sport modifiée par l'utilisatrice */
+  weekOverride?: WeekOverride;
+  /** Semaines « répétées » pour rester plus longtemps sur un bloc */
+  sportWeekOffset: number;
   summary: Summary;
   today: string;
 }
@@ -37,7 +42,12 @@ export function useAppData(profile: Profile): AppData | undefined {
     ]);
     const mealRatings = photos.map((ph) => ({ date: ph.date, meal: ph.meal, conformity: ph.conformity }));
     const dismissed = allMeta.filter((m) => m.key.startsWith('alert:')).map((m) => m.key);
-    return { measurements, snapshots, metas, dailyLogs, workoutLogs, mealRatings, dismissed };
+    const metaValue = (k: string) => allMeta.find((m) => m.key === k)?.value;
+    return {
+      measurements, snapshots, metas, dailyLogs, workoutLogs, mealRatings, dismissed,
+      weekOverride: metaValue('weekPlan') as WeekOverride | undefined,
+      sportWeekOffset: (metaValue('sportWeekOffset') as number | undefined) ?? 0
+    };
   }, []);
   if (!data) return undefined;
   const [reached, celebrated, pending] = data.metas;
@@ -55,6 +65,8 @@ export function useAppData(profile: Profile): AppData | undefined {
     workoutLogs: data.workoutLogs,
     mealRatings: data.mealRatings,
     dismissedAlerts: new Set(data.dismissed),
+    weekOverride: data.weekOverride,
+    sportWeekOffset: data.sportWeekOffset,
     summary: currentSummary(profile, today, {
       lastSnapshotWeight: last?.refWeightKg,
       goalReached: !!goalReachedAt,

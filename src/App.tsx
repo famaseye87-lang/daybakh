@@ -16,6 +16,14 @@ import { MeasureForm } from './features/measures/MeasureForm';
 import { MeasureGuide } from './features/measures/MeasureGuide';
 import { EditProfile } from './features/profile/EditProfile';
 import { UpdateBanner } from './features/shell/UpdateBanner';
+import { SportHome } from './features/sport/SportHome';
+import { WeekEditor } from './features/sport/WeekEditor';
+import { ExerciseList } from './features/sport/ExerciseList';
+import { ExercisePage } from './features/sport/ExercisePage';
+import { SessionPreview } from './features/sport/SessionPreview';
+import { SessionPlayer } from './features/sport/SessionPlayer';
+import { SwimPage } from './features/sport/SwimPage';
+import { WalkPage } from './features/sport/WalkPage';
 import { Logo } from './components/Logo';
 import s from './features/shell/shell.module.css';
 
@@ -40,7 +48,14 @@ function MainApp({ profile }: { profile: Profile }) {
       <main className={s.app}>
         <Routes>
           <Route path="/" element={<Today data={data} />} />
-          <Route path="/sport" element={<Placeholder title="Sport" text="Ta semaine type, les fiches d'exercices et le mode séance avec minuteur." />} />
+          <Route path="/sport" element={<SportHome data={data} />} />
+          <Route path="/sport/semaine" element={<WeekEditor data={data} />} />
+          <Route path="/sport/exercices" element={<ExerciseList />} />
+          <Route path="/sport/exercice/:id" element={<ExercisePage postpartumLocked={!!profile.lastDeliveryDate && profile.perinealCheckDone !== 'yes'} />} />
+          <Route path="/sport/seance/:kind" element={<SessionPreview data={data} />} />
+          <Route path="/sport/seance/:kind/go" element={<SessionPlayer data={data} />} />
+          <Route path="/sport/natation" element={<SwimPage data={data} />} />
+          <Route path="/sport/marche" element={<WalkPage data={data} />} />
           <Route path="/assiette" element={<Placeholder title="Assiette" text="Tes menus, les recettes familiales, la liste de courses et le journal photo." />} />
           <Route path="/progres" element={<MeasuresPage data={data} />} />
           <Route path="/progres/mesure" element={<MeasureForm data={data} />} />

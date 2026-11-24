@@ -7,6 +7,9 @@ import { META } from '../../data/recalcService';
 import type { AppData } from '../../hooks/useAppData';
 import msg from '../../content/messages.json';
 import { activeAlerts } from '../progress/alerts';
+import { sportContext } from '../sport/useSport';
+import { sessionPath } from '../sport/SportHome';
+import { SESSION_LABEL } from '../../domain/sport/week';
 
 const PHASE_LABEL = { start: 'Démarrage', loss: 'Perte', consolidation: 'Consolidation', maintenance: 'Maintien' } as const;
 const n = (v: number, d = 0) => v.toLocaleString('fr-FR', { maximumFractionDigits: d, minimumFractionDigits: d });
@@ -34,6 +37,7 @@ function RecalcCard({ data }: { data: AppData }) {
 
 export function Today({ data }: { data: AppData }) {
   const { profile: p, summary: sm, today } = data;
+  const ctx = sportContext(data);
   const started = today >= p.programStartDate;
   const hello = p.firstName ? `Bonjour ${p.firstName} !` : 'Bonjour !';
   const isMonday = new Date(today + 'T12:00:00').getDay() === 1;
@@ -73,6 +77,25 @@ export function Today({ data }: { data: AppData }) {
         </Card>
       )}
 
+      {!ctx.sportDisabled && (
+        <Card>
+          <h2>Ta séance du jour</h2>
+          {ctx.todayPlan.items.map((it, i) =>
+            it.kind === 'rest' ? (
+              <p key={i}>Repos. La récupération fait partie de l'entraînement : profites-en pour bien t'hydrater.</p>
+            ) : (
+              <div key={i} style={{ marginBottom: 8 }}>
+                <p><strong>{it.label ?? SESSION_LABEL[it.kind]}</strong> · {it.minutes} min{ctx.doneToday.some((w) => w.kind === it.kind) ? ' · ✓ faite' : ''}</p>
+                {!ctx.doneToday.some((w) => w.kind === it.kind) && <LinkButton to={sessionPath(it.kind)}>{it.kind === 'A' || it.kind === 'B' || it.kind === 'C' ? 'Voir la séance' : 'Voir le programme'}</LinkButton>}
+              </div>
+            )
+          )}
+          {ctx.shortNight && ctx.todayPlan.items.some((it) => ['A', 'B', 'C'].includes(it.kind)) && (
+            <p style={{ color: 'var(--c-muted)', marginTop: 8 }}>Nuit courte : la version « séance courte » (20-25 min) est proposée.</p>
+          )}
+        </Card>
+      )}
+
       {needsMeasure && (
         <Card>
           <h2>{isMonday ? "C'est lundi : ta mesure" : 'Ta mesure de la semaine'}</h2>
@@ -88,7 +111,7 @@ export function Today({ data }: { data: AppData }) {
         <Stat label="Boissons" value={`${n(sm.water.min, 1)}–${n(sm.water.max, 1)} L`} />
       </Card>
       <Card tone="info">
-        <p>Séance du jour, menu, eau et sommeil s'afficheront ici dans les prochaines livraisons.</p>
+        <p>Menu du jour, eau et sommeil s'afficheront ici dans les prochaines livraisons.</p>
       </Card>
     </>
   );

@@ -1,0 +1,8 @@
+{
+  "_doc": "Progression de la marche du dimanche (§ F.6) : d'abord la durée, puis l'allure, puis la pente. Vitesses et pentes : conventions Daybakh, à adapter à ton ressenti.",
+  "phases": [
+    { "fromWeek": 1, "toWeek": 4, "focus": "durée", "minutes": [45, 50, 55, 60], "speedKmh": 4.5, "inclinePct": 0, "tip": "Allure où tu peux encore parler facilement." },
+    { "fromWeek": 5, "toWeek": 12, "focus": "allure", "minutes": [60], "speedKmh": 4.7, "speedStepKmhEvery2Weeks": 0.2, "maxSpeedKmh": 5.5, "inclinePct": 0, "tip": "Un peu plus vite : tu peux parler, mais en phrases courtes." },
+    { "fromWeek": 13, "toWeek": 999, "focus": "pente", "minutes": [60], "speedKmh": 5.0, "inclinePct": 1, "inclineStepEvery2Weeks": 1, "maxInclinePct": 6, "tip": "Dehors : choisis un parcours avec une côte. Sur tapis : augmente la pente." }
+  ]
+}

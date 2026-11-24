@@ -1,0 +1,42 @@
+{
+  "_doc": "Séances de renforcement et progression sur 24 semaines (conventions Daybakh, consigne projet § F.4). Modifiable sans toucher au code.",
+  "warmup": [
+    { "label": "Marche sur place, bras qui balancent", "seconds": 60 },
+    { "label": "Cercles de bras, en avant puis en arrière", "seconds": 45 },
+    { "label": "Rotations du bassin", "seconds": 30 },
+    { "label": "Squats lents, petite amplitude", "seconds": 45 },
+    { "label": "Montées de genoux douces", "seconds": 45 },
+    { "label": "Fentes arrière lentes, en alternance", "seconds": 45 }
+  ],
+  "cooldown": [
+    { "label": "Étirement de l'avant de la cuisse (debout, talon vers la fesse) — 15 s par côté", "seconds": 30 },
+    { "label": "Étirement de l'arrière de la cuisse (jambe tendue sur une marche) — 15 s par côté", "seconds": 30 },
+    { "label": "Étirement des fessiers (allongé·e, cheville sur le genou opposé) — 15 s par côté", "seconds": 30 },
+    { "label": "Étirement de la poitrine (main contre un mur, tourne le buste) — 15 s par côté", "seconds": 30 },
+    { "label": "Posture de l'enfant : fesses sur les talons, bras devant", "seconds": 45 },
+    { "label": "Respiration lente : inspire par le nez, souffle longuement", "seconds": 45 }
+  ],
+  "sessions": {
+    "A": { "name": "Renforcement A", "focus": "Haut du corps et ventre", "exercises": ["pompes", "dips", "superman", "planche-epaules", "deadbug", "planche"] },
+    "B": { "name": "Renforcement B", "focus": "Jambes, fessiers et ventre", "exercises": ["squat", "fentes", "pont", "abduction", "chaise", "birddog"] },
+    "C": { "name": "Renforcement C", "focus": "Corps complet et gainage", "exercises": ["squat", "pompes", "fentes", "genoux", "planche-laterale", "hollow"] },
+    "hiit": { "name": "HIIT léger", "focus": "Cardio par intervalles", "exercises": ["genoux", "pas-chasses"] }
+  },
+  "blocks": [
+    { "block": 1, "fromWeek": 1, "toWeek": 4, "rounds": 2, "work": 30, "rest": 30, "level": "easy", "advancedShare": 0, "note": "On apprend les bons gestes, versions faciles." },
+    { "block": 2, "fromWeek": 5, "toWeek": 8, "rounds": 3, "work": 35, "rest": 25, "level": "easy", "advancedShare": 0, "note": "Un tour de plus, un peu moins de repos." },
+    { "block": 3, "fromWeek": 9, "toWeek": 12, "rounds": 3, "work": 35, "rest": 25, "level": "intermediate", "advancedShare": 0, "note": "Passage aux versions intermédiaires." },
+    { "block": 4, "fromWeek": 13, "toWeek": 16, "rounds": 3, "work": 40, "rest": 20, "level": "intermediate", "advancedShare": 0, "note": "40 s d'effort, 20 s de repos." },
+    { "block": 5, "fromWeek": 17, "toWeek": 20, "rounds": 3, "work": 40, "rest": 20, "level": "intermediate", "advancedShare": 0.5, "note": "Versions avancées sur la moitié des exercices." },
+    { "block": 6, "fromWeek": 21, "toWeek": 24, "rounds": 4, "work": 40, "rest": 20, "level": "intermediate", "advancedShare": 0.5, "note": "Séances complètes de 40 minutes." },
+    { "block": 7, "fromWeek": 25, "toWeek": 999, "rounds": 3, "work": 40, "rest": 20, "level": "intermediate", "advancedShare": 0.5, "note": "Entretien : on garde le niveau, on varie les versions." }
+  ],
+  "roundRestSeconds": 60,
+  "deloadEveryWeeks": 4,
+  "hiit": {
+    "fromWeek": 5,
+    "minSleepHours": 6,
+    "treadmill": { "rounds": 8, "work": 60, "rest": 60, "workLabel": "Marche rapide (ou en pente)", "restLabel": "Marche tranquille" },
+    "floor": { "rounds": 6, "work": 20, "rest": 40 }
+  }
+}

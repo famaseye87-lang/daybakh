@@ -1,0 +1,20 @@
+{
+  "_doc": "Séance de natation débutante, 2 h dans l'eau (convention Daybakh, § F.5). Modifiable sans toucher au code.",
+  "parts": [
+    { "minutes": 15, "title": "Échauffement", "content": "Marche dans l'eau, respiration (souffler dans l'eau par la bouche et le nez), battements de jambes tenu·e au bord." },
+    { "minutes": 25, "title": "Éducatifs", "content": "Flottaison sur le ventre et sur le dos, glisse après une poussée au mur, battements avec la planche." },
+    { "minutes": 30, "title": "Bloc technique", "content": "Brasse (semaines impaires) ou dos (semaines paires) : longueurs entrecoupées de pauses au bord." },
+    { "minutes": 10, "title": "Pause active", "content": "Marche dans l'eau, boire un peu, relâcher les épaules." },
+    { "minutes": 25, "title": "Bloc endurance", "content": "Alterner 1 longueur de nage et 1 longueur de récupération, puis battements avec planche et bras avec pull-buoy." },
+    { "minutes": 15, "title": "Temps libre et retour au calme", "content": "Nage libre tranquille, flottaison, étirements doux au bord." }
+  ],
+  "progression": [
+    { "fromWeek": 1, "toWeek": 4, "goal": "Être à l'aise : flotter, souffler dans l'eau, glisser.", "endurance": "4 × 1 longueur, pause à chaque bord" },
+    { "fromWeek": 5, "toWeek": 8, "goal": "Brasse et dos sur une longueur complète.", "endurance": "6 × 1 longueur, 30 s de pause" },
+    { "fromWeek": 9, "toWeek": 12, "goal": "Enchaîner 2 longueurs.", "endurance": "4 × 2 longueurs, 45 s de pause" },
+    { "fromWeek": 13, "toWeek": 16, "goal": "Découverte du dos crawlé.", "endurance": "5 × 2 longueurs, 30 s de pause" },
+    { "fromWeek": 17, "toWeek": 20, "goal": "Premiers mouvements de crawl avec planche.", "endurance": "3 × 4 longueurs, 1 min de pause" },
+    { "fromWeek": 21, "toWeek": 999, "goal": "Varier les nages, enchaîner plus longtemps.", "endurance": "2 × 6 longueurs, 1 min de pause" }
+  ],
+  "tips": ["Bois de l'eau avant et après : on transpire aussi dans l'eau.", "Pause au bord dès que le souffle est court : c'est prévu.", "Après la piscine, prévois une collation protéinée (yaourt, fruit)."]
+}

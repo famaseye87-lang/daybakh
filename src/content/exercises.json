@@ -1,0 +1,192 @@
+{
+  "_doc": "Banque d'exercices au poids du corps. Modifiable sans toucher au code. 'intenseFrom' : niveau à partir duquel l'exercice sollicite fortement les abdominaux (verrouillé tant que le bilan périnée/diastasis n'est pas déclaré fait ; 'substitute' le remplace). 'pose' : clé du dessin. 'unilateral' : alterner les côtés.",
+  "exercises": [
+    {
+      "id": "pompes", "name": "Pompes inclinées", "group": "haut", "pose": "pushup",
+      "muscles": ["pectoraux", "triceps", "épaules", "gainage"],
+      "steps": ["Mains posées un peu plus larges que les épaules.", "Corps aligné de la tête aux talons (ou aux genoux), ventre rentré.", "Descends la poitrine vers l'appui en pliant les coudes à environ 45° du corps.", "Pousse pour remonter en soufflant."],
+      "mistakes": ["Fesses trop hautes ou bas du dos qui se creuse.", "Coudes écartés à 90° du corps.", "Tête qui tombe vers l'avant."],
+      "levels": {
+        "easy": { "label": "Contre un mur", "reps": "10 à 12 répétitions" },
+        "intermediate": { "label": "Mains sur une table ou genoux au sol", "reps": "8 à 10 répétitions" },
+        "advanced": { "label": "Au sol, sur les pieds", "reps": "6 à 10 répétitions" }
+      }
+    },
+    {
+      "id": "dips", "name": "Dips sur chaise", "group": "haut", "pose": "dips",
+      "muscles": ["triceps", "épaules"],
+      "steps": ["Chaise stable contre un mur, mains au bord de l'assise, doigts vers l'avant.", "Fesses juste devant la chaise.", "Plie les coudes vers l'arrière pour descendre de quelques centimètres.", "Pousse sur les mains pour remonter."],
+      "mistakes": ["Descendre trop bas (douleur à l'avant de l'épaule).", "Coudes qui s'écartent sur les côtés.", "Pousser avec les jambes plutôt qu'avec les bras."],
+      "levels": {
+        "easy": { "label": "Pieds proches, genoux pliés", "reps": "8 à 10 répétitions" },
+        "intermediate": { "label": "Pieds plus loin", "reps": "10 à 12 répétitions" },
+        "advanced": { "label": "Jambes tendues", "reps": "10 à 12 répétitions" }
+      }
+    },
+    {
+      "id": "superman", "name": "Superman", "group": "haut", "pose": "superman",
+      "muscles": ["dos", "fessiers", "arrière des épaules"],
+      "steps": ["Allongé·e sur le ventre, bras tendus devant, front proche du sol.", "Rentre légèrement le ventre.", "Décolle bras et jambes de quelques centimètres, regard vers le sol.", "Tiens 2 secondes, redescends doucement."],
+      "mistakes": ["Relever la tête et cambrer fort.", "Monter trop haut avec élan.", "Bloquer la respiration."],
+      "levels": {
+        "easy": { "label": "Bras et jambe opposés, en alternance", "reps": "8 répétitions par côté" },
+        "intermediate": { "label": "Bras et jambes ensemble", "reps": "8 à 10 répétitions" },
+        "advanced": { "label": "Tenue en haut avec petits battements", "reps": "tenir 20 à 30 s" }
+      }
+    },
+    {
+      "id": "ytw", "name": "Y-T-W au sol", "group": "haut", "pose": "superman",
+      "muscles": ["haut du dos", "épaules", "posture"],
+      "steps": ["Allongé·e sur le ventre, front sur une serviette roulée.", "Décolle les bras en forme de Y, pouces vers le haut, puis repose.", "Même chose en T (bras sur les côtés), puis en W (coudes pliés, omoplates serrées).", "Mouvements lents, 2 s en haut."],
+      "mistakes": ["Hausser les épaules vers les oreilles.", "Relever la tête.", "Aller vite."],
+      "levels": {
+        "easy": { "label": "Une seule lettre par série", "reps": "6 répétitions" },
+        "intermediate": { "label": "Y, T et W enchaînés", "reps": "4 cycles" },
+        "advanced": { "label": "Y, T, W avec 3 s de tenue", "reps": "5 cycles" }
+      }
+    },
+    {
+      "id": "planche-epaules", "name": "Planche avec touchers d'épaules", "group": "haut", "pose": "plank",
+      "muscles": ["gainage profond", "épaules"], "intenseFrom": "easy", "substitute": "birddog",
+      "steps": ["En appui sur les mains, sous les épaules.", "Pieds écartés à la largeur du bassin, corps aligné.", "Touche l'épaule opposée avec une main, sans balancer le bassin.", "Alterne les côtés lentement."],
+      "mistakes": ["Bassin qui tourne à chaque touche.", "Fesses trop hautes.", "Aller trop vite."],
+      "levels": {
+        "easy": { "label": "Genoux au sol", "reps": "8 touchers par côté" },
+        "intermediate": { "label": "Sur les pieds, pieds écartés", "reps": "8 touchers par côté" },
+        "advanced": { "label": "Sur les pieds, pieds serrés", "reps": "10 touchers par côté" }
+      }
+    },
+    {
+      "id": "deadbug", "name": "Dead bug", "group": "ventre", "pose": "deadbug",
+      "muscles": ["transverse", "gainage profond"],
+      "steps": ["Sur le dos, bras tendus vers le plafond, genoux pliés à 90° au-dessus des hanches.", "Plaque doucement le bas du dos au sol, ventre rentré.", "Éloigne lentement un bras et la jambe opposée en soufflant.", "Reviens et change de côté."],
+      "mistakes": ["Le bas du dos se décolle du sol.", "Bloquer la respiration.", "Aller trop loin trop vite."],
+      "levels": {
+        "easy": { "label": "Seulement les jambes, pied qui frôle le sol", "reps": "6 par côté" },
+        "intermediate": { "label": "Bras et jambe opposés", "reps": "8 par côté" },
+        "advanced": { "label": "Jambe presque tendue, mouvement lent (3 s)", "reps": "10 par côté" }
+      }
+    },
+    {
+      "id": "birddog", "name": "Bird dog", "group": "ventre", "pose": "birddog", "unilateral": true,
+      "muscles": ["gainage profond", "dos", "fessiers"],
+      "steps": ["À quatre pattes, mains sous les épaules, genoux sous les hanches.", "Dos plat, ventre légèrement rentré.", "Tends un bras devant et la jambe opposée derrière, à l'horizontale.", "Tiens 2 s sans bouger le bassin, puis change."],
+      "mistakes": ["Cambrer en levant la jambe trop haut.", "Bassin qui bascule sur le côté.", "Tête relevée."],
+      "levels": {
+        "easy": { "label": "Bras seul, puis jambe seule", "reps": "6 par côté" },
+        "intermediate": { "label": "Bras et jambe opposés", "reps": "8 par côté" },
+        "advanced": { "label": "Coude et genou se rejoignent sous le ventre", "reps": "10 par côté" }
+      }
+    },
+    {
+      "id": "planche", "name": "Planche", "group": "ventre", "pose": "plank",
+      "muscles": ["gainage profond", "épaules", "fessiers"], "intenseFrom": "intermediate", "substitute": "birddog",
+      "steps": ["Avant-bras au sol, coudes sous les épaules.", "Corps aligné, fessiers serrés, ventre rentré sans retenir la respiration.", "Regard vers le sol.", "Tiens la position en respirant calmement."],
+      "mistakes": ["Bas du dos qui s'affaisse.", "Fesses en l'air.", "Bloquer la respiration."],
+      "levels": {
+        "easy": { "label": "Sur les genoux", "reps": "tenir 20 s" },
+        "intermediate": { "label": "Sur les pieds", "reps": "tenir 30 s" },
+        "advanced": { "label": "Sur les pieds, une jambe levée en alternance", "reps": "tenir 40 s" }
+      }
+    },
+    {
+      "id": "planche-laterale", "name": "Planche latérale", "group": "ventre", "pose": "sideplank", "unilateral": true,
+      "muscles": ["obliques", "fessier moyen", "épaules"],
+      "steps": ["Sur le côté, coude sous l'épaule.", "Hanches dans l'alignement du corps.", "Monte le bassin et tiens, sans pencher vers l'avant.", "Change de côté à mi-temps."],
+      "mistakes": ["Bassin qui tombe.", "Épaule qui s'enfonce.", "Corps qui bascule vers l'avant."],
+      "levels": {
+        "easy": { "label": "Genoux pliés au sol", "reps": "tenir 15 s par côté" },
+        "intermediate": { "label": "Jambes tendues", "reps": "tenir 20 s par côté" },
+        "advanced": { "label": "Jambe du dessus levée", "reps": "tenir 25 s par côté" }
+      }
+    },
+    {
+      "id": "hollow", "name": "Hollow body adapté", "group": "ventre", "pose": "hollow",
+      "muscles": ["grand droit", "transverse"], "intenseFrom": "easy", "substitute": "deadbug",
+      "steps": ["Sur le dos, bas du dos plaqué au sol.", "Décolle légèrement la tête et les épaules, menton rentré.", "Lève les jambes pliées, puis tends-les progressivement.", "Tiens en respirant, le bas du dos reste au sol."],
+      "mistakes": ["Le bas du dos se décolle.", "Tirer sur la nuque.", "Ventre qui forme un dôme : reviens à la version facile."],
+      "levels": {
+        "easy": { "label": "Genoux pliés, bras le long du corps", "reps": "tenir 15 s" },
+        "intermediate": { "label": "Jambes à 45°, bras le long du corps", "reps": "tenir 20 s" },
+        "advanced": { "label": "Jambes basses, bras au-dessus de la tête", "reps": "tenir 25 s" }
+      }
+    },
+    {
+      "id": "squat", "name": "Squat", "group": "jambes", "pose": "squat",
+      "muscles": ["cuisses", "fessiers"],
+      "steps": ["Pieds à largeur d'épaules, pointes légèrement ouvertes.", "Pousse les fesses vers l'arrière comme pour t'asseoir.", "Genoux dans l'axe des pieds, poitrine ouverte.", "Remonte en poussant dans les talons."],
+      "mistakes": ["Genoux qui rentrent vers l'intérieur.", "Talons qui décollent.", "Dos arrondi."],
+      "levels": {
+        "easy": { "label": "S'asseoir sur une chaise et se relever", "reps": "10 à 12 répétitions" },
+        "intermediate": { "label": "Squat libre", "reps": "12 à 15 répétitions" },
+        "advanced": { "label": "Squat avec 2 s de pause en bas", "reps": "12 répétitions" }
+      }
+    },
+    {
+      "id": "fentes", "name": "Fentes arrière", "group": "jambes", "pose": "lunge", "unilateral": true,
+      "muscles": ["cuisses", "fessiers", "équilibre"],
+      "steps": ["Debout, pieds à largeur de bassin.", "Recule une jambe et descends le genou arrière vers le sol.", "Le genou avant reste au-dessus de la cheville.", "Pousse sur le pied avant pour revenir."],
+      "mistakes": ["Genou avant qui dépasse loin devant le pied.", "Buste penché en avant.", "Pas trop court."],
+      "levels": {
+        "easy": { "label": "Avec une main sur une chaise", "reps": "6 par jambe" },
+        "intermediate": { "label": "Sans appui", "reps": "8 par jambe" },
+        "advanced": { "label": "Enchaînées sans pause entre les côtés", "reps": "10 par jambe" }
+      }
+    },
+    {
+      "id": "pont", "name": "Pont fessier", "group": "jambes", "pose": "bridge",
+      "muscles": ["fessiers", "arrière des cuisses", "bas du dos"],
+      "steps": ["Sur le dos, genoux pliés, pieds à plat près des fesses.", "Souffle et monte le bassin en serrant les fessiers.", "Épaules, hanches et genoux alignés en haut.", "Redescends lentement."],
+      "mistakes": ["Cambrer en haut au lieu de serrer les fessiers.", "Pieds trop loin.", "Pousser avec la nuque."],
+      "levels": {
+        "easy": { "label": "Deux pieds au sol", "reps": "12 répétitions" },
+        "intermediate": { "label": "2 s de pause en haut", "reps": "12 répétitions" },
+        "advanced": { "label": "Sur une jambe", "reps": "8 par jambe" }
+      }
+    },
+    {
+      "id": "chaise", "name": "Chaise contre le mur", "group": "jambes", "pose": "wallsit",
+      "muscles": ["cuisses", "fessiers"],
+      "steps": ["Dos contre le mur, pieds à environ 50 cm du mur.", "Glisse vers le bas jusqu'à ce que les genoux soient pliés (90° au maximum).", "Genoux au-dessus des chevilles.", "Tiens en respirant."],
+      "mistakes": ["Genoux qui dépassent les pieds.", "Descendre plus bas que 90°.", "Bloquer la respiration."],
+      "levels": {
+        "easy": { "label": "Peu fléchi", "reps": "tenir 20 s" },
+        "intermediate": { "label": "Cuisses presque à l'horizontale", "reps": "tenir 30 s" },
+        "advanced": { "label": "Cuisses à l'horizontale", "reps": "tenir 45 s" }
+      }
+    },
+    {
+      "id": "abduction", "name": "Abduction allongée", "group": "jambes", "pose": "sidelegraise", "unilateral": true,
+      "muscles": ["fessier moyen", "hanches"],
+      "steps": ["Allongé·e sur le côté, jambes tendues dans l'alignement du corps.", "Monte la jambe du dessus, pointe de pied vers l'avant.", "Redescends sans toucher l'autre jambe.", "Change de côté à mi-temps."],
+      "mistakes": ["Pointe du pied tournée vers le plafond.", "Bassin qui bascule vers l'arrière.", "Monter trop haut."],
+      "levels": {
+        "easy": { "label": "Petite amplitude", "reps": "10 par jambe" },
+        "intermediate": { "label": "Amplitude complète, lent", "reps": "12 par jambe" },
+        "advanced": { "label": "2 s de tenue en haut", "reps": "12 par jambe" }
+      }
+    },
+    {
+      "id": "genoux", "name": "Montées de genoux", "group": "cardio", "pose": "highknees",
+      "muscles": ["cardio", "cuisses", "gainage"],
+      "steps": ["Debout, buste droit.", "Monte un genou vers la hanche puis l'autre.", "Bras qui accompagnent le mouvement.", "Pose les pieds en douceur."],
+      "mistakes": ["Se pencher en arrière.", "Atterrir talons en premier.", "Bloquer la respiration."],
+      "levels": {
+        "easy": { "label": "Marche sur place genoux hauts", "reps": "à ton rythme" },
+        "intermediate": { "label": "Rythme rapide, sans sauter", "reps": "rythme soutenu" },
+        "advanced": { "label": "Petits sautillés", "reps": "rythme soutenu" }
+      }
+    },
+    {
+      "id": "pas-chasses", "name": "Pas chassés et bras", "group": "cardio", "pose": "jack",
+      "muscles": ["cardio", "épaules", "jambes"],
+      "steps": ["Pas de côté à droite en levant les bras.", "Ramène le pied en baissant les bras.", "Même chose à gauche.", "Garde un rythme régulier."],
+      "mistakes": ["Genoux verrouillés.", "Épaules crispées."],
+      "levels": {
+        "easy": { "label": "Lent, bras à hauteur d'épaules", "reps": "à ton rythme" },
+        "intermediate": { "label": "Rapide, bras au-dessus de la tête", "reps": "rythme soutenu" },
+        "advanced": { "label": "Jumping jacks avec saut", "reps": "rythme soutenu" }
+      }
+    }
+  ]
+}
