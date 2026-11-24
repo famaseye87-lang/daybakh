@@ -6,6 +6,7 @@ import { setMeta, deleteMeta } from '../../data/repositories';
 import { META } from '../../data/recalcService';
 import type { AppData } from '../../hooks/useAppData';
 import msg from '../../content/messages.json';
+import { activeAlerts } from '../progress/alerts';
 
 const PHASE_LABEL = { start: 'Démarrage', loss: 'Perte', consolidation: 'Consolidation', maintenance: 'Maintien' } as const;
 const n = (v: number, d = 0) => v.toLocaleString('fr-FR', { maximumFractionDigits: d, minimumFractionDigits: d });
@@ -53,6 +54,13 @@ export function Today({ data }: { data: AppData }) {
       )}
 
       {data.pendingRecalcId !== null && <RecalcCard data={data} />}
+
+      {activeAlerts(data).length > 0 && (
+        <Card tone="info">
+          <p><strong>Un conseil t'attend</strong> à propos de ton rythme.</p>
+          <LinkButton to="/progres" variant="secondary">Voir dans Progrès</LinkButton>
+        </Card>
+      )}
 
       {!started ? (
         <Card tone="success">

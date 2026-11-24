@@ -15,6 +15,12 @@
   --c-border: #ead9c8;
   --c-info-bg: #fdf0d8;
 
+  /* Graphiques — palette validée (CVD, contraste) avec le validateur dataviz */
+  --chart-1: #b8431f;
+  --chart-2: #1a7fa8;
+  --chart-grid: #ead9c8;
+  --chart-surface: #ffffff;
+
   --radius: 16px;
   --radius-sm: 10px;
   --space-1: 4px;
@@ -45,6 +51,10 @@
     --c-border: #4a3a2e;
     --c-info-bg: #3a2c23;
     --c-success: #6cc79c;
+    --chart-1: #e06f45;
+    --chart-2: #4c93d6;
+    --chart-grid: #4a3a2e;
+    --chart-surface: #2a211b;
     --shadow: none;
   }
 }

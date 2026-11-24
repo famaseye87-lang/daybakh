@@ -7,6 +7,9 @@ import { formatDateFR } from '../../domain/dates';
 import type { AppData } from '../../hooks/useAppData';
 import { fieldLabel, fieldUnit, fmt1, signed } from './fields';
 import s from './measures.module.css';
+import { AlertsCard } from '../progress/AlertsCard';
+import { ChartsCard } from '../progress/ChartsCard';
+import { SleepLinkCard } from '../progress/SleepLinkCard';
 
 function DeltaText({ v, unit, label }: { v?: number; unit: string; label: string }) {
   if (v === undefined) return null;
@@ -47,6 +50,8 @@ export function MeasuresPage({ data }: { data: AppData }) {
         <Link to="/progres/guide" style={{ textAlign: 'center' }}>Comment se mesurer ?</Link>
       </div>
 
+      <AlertsCard data={data} />
+
       {target && progress !== undefined && (
         <Card>
           <h2>Vers ton objectif</h2>
@@ -62,6 +67,8 @@ export function MeasuresPage({ data }: { data: AppData }) {
           {data.goalReachedAt && <p><strong>Objectif atteint 🎉 Tu es en mode maintien.</strong></p>}
         </Card>
       )}
+
+      {ms.length > 0 && <ChartsCard data={data} />}
 
       {latest && (
         <Card>
@@ -108,9 +115,7 @@ export function MeasuresPage({ data }: { data: AppData }) {
         </Card>
       )}
 
-      <Card tone="info">
-        <p>Les courbes arrivent dans la prochaine livraison.</p>
-      </Card>
+      <SleepLinkCard data={data} />
     </>
   );
 }

@@ -1,0 +1,26 @@
+.wrap { position: relative; touch-action: pan-y; }
+.svg { display: block; width: 100%; height: auto; overflow: visible; }
+.svg:focus-visible { outline: 3px solid var(--c-accent); outline-offset: 2px; border-radius: 6px; }
+.grid { stroke: var(--chart-grid); stroke-width: 1; }
+.tick { fill: var(--c-muted); font-size: 11px; font-family: var(--font); }
+.endLabel { fill: var(--c-text); font-size: 12px; font-weight: 800; font-family: var(--font); }
+.refLine { stroke: var(--c-muted); stroke-width: 1; }
+.refLabel { fill: var(--c-muted); font-size: 11px; font-weight: 700; font-family: var(--font); }
+.cross { stroke: var(--c-muted); stroke-width: 1; }
+.tooltip {
+  position: absolute; top: 0; pointer-events: none; z-index: 2;
+  background: var(--c-text); color: var(--c-bg); border-radius: 8px;
+  padding: 6px 10px; font-size: 0.8rem; line-height: 1.3; white-space: nowrap;
+  transform: translateX(-50%);
+}
+.tooltip strong { display: block; }
+.legend { display: flex; gap: var(--space-4); flex-wrap: wrap; font-size: var(--fs-sm); color: var(--c-text); margin-bottom: var(--space-2); }
+.swatch { display: inline-block; width: 12px; height: 4px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+.table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); margin-top: var(--space-2); }
+.table th, .table td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--c-border); }
+.table td.num, .table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.details { margin-top: var(--space-2); font-size: var(--fs-sm); }
+.details summary { color: var(--c-action); font-weight: 700; cursor: pointer; min-height: 32px; }
+.title { font-weight: 800; margin: 0 0 2px; }
+.subtitle { color: var(--c-muted); font-size: var(--fs-sm); margin: 0 0 var(--space-2); }
+.empty { color: var(--c-muted); font-size: var(--fs-sm); padding: var(--space-3) 0; }

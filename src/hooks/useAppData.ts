@@ -3,7 +3,7 @@ import { db } from '../data/db';
 import { META } from '../data/recalcService';
 import { currentSummary, type Summary } from '../domain/summary';
 import { useToday } from './useToday';
-import type { Profile, Measurement, CalcSnapshot } from '../types';
+import type { Profile, Measurement, CalcSnapshot, DailyLog, WorkoutLog, MealTag } from '../types';
 
 export interface AppData {
   profile: Profile;
@@ -12,6 +12,12 @@ export interface AppData {
   goalReachedAt: string | null;
   goalCelebrated: boolean;
   pendingRecalcId: number | null;
+  dailyLogs: DailyLog[];
+  workoutLogs: WorkoutLog[];
+  /** Métadonnées des photos (sans les images) */
+  mealRatings: { date: string; meal: MealTag; conformity?: 'yes' | 'almost' | 'no' }[];
+  /** Clés des alertes déjà lues (alert:<type>:<semaine>) */
+  dismissedAlerts: Set<string>;
   summary: Summary;
   today: string;
 }
@@ -20,12 +26,18 @@ export interface AppData {
 export function useAppData(profile: Profile): AppData | undefined {
   const today = useToday();
   const data = useLiveQuery(async () => {
-    const [measurements, snapshots, metas] = await Promise.all([
+    const [measurements, snapshots, metas, dailyLogs, workoutLogs, photos, allMeta] = await Promise.all([
       db.measurements.orderBy('date').toArray(),
       db.calcSnapshots.orderBy('date').toArray(),
-      db.meta.bulkGet([META.goalReachedAt, META.goalCelebrated, META.pendingRecalc])
+      db.meta.bulkGet([META.goalReachedAt, META.goalCelebrated, META.pendingRecalc]),
+      db.dailyLogs.orderBy('date').toArray(),
+      db.workoutLogs.orderBy('date').toArray(),
+      db.mealPhotos.orderBy('date').toArray(),
+      db.meta.toArray()
     ]);
-    return { measurements, snapshots, metas };
+    const mealRatings = photos.map((ph) => ({ date: ph.date, meal: ph.meal, conformity: ph.conformity }));
+    const dismissed = allMeta.filter((m) => m.key.startsWith('alert:')).map((m) => m.key);
+    return { measurements, snapshots, metas, dailyLogs, workoutLogs, mealRatings, dismissed };
   }, []);
   if (!data) return undefined;
   const [reached, celebrated, pending] = data.metas;
@@ -39,6 +51,10 @@ export function useAppData(profile: Profile): AppData | undefined {
     goalReachedAt,
     goalCelebrated: !!celebrated?.value,
     pendingRecalcId: (pending?.value as number | undefined) ?? null,
+    dailyLogs: data.dailyLogs,
+    workoutLogs: data.workoutLogs,
+    mealRatings: data.mealRatings,
+    dismissedAlerts: new Set(data.dismissed),
     summary: currentSummary(profile, today, {
       lastSnapshotWeight: last?.refWeightKg,
       goalReached: !!goalReachedAt,

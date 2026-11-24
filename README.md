@@ -80,14 +80,14 @@ Le workflow relance les tests, reconstruit et publie. Sur les téléphones, un b
 | `src/domain/` | Calculs purs (formules sourcées) + tests dans `__tests__/` |
 | `src/data/` | Base locale (Dexie / IndexedDB) |
 | `src/features/` | Écrans, un dossier par module |
-| `src/components/` | Composants d'interface réutilisables |
+| `src/components/` | Composants d'interface réutilisables (dont `charts/` : graphiques SVG) |
 | `src/theme/` | Couleurs (palette « Soleil de Dakar »), typographie, mode sombre |
 
 ## Avancement
 
 - [x] Livraison 1 — socle, moteur de calcul testé, premier lancement (accueil, avertissement santé, profil, premières mesures, résumé), écran À propos
 - [x] Livraison 2 — mesures hebdomadaires + guide illustré, écarts, progression vers l'objectif, recalcul toutes les 4 semaines, passage en maintien, modification du profil (« ce qui a changé »), effacement des données
-- [ ] Tableau de bord
+- [x] Livraison 3 — tableau de bord : courbes (poids, mensurations, IMC, tour de taille ÷ taille) sur 4 sem. / 12 sem. / tout, alertes perte rapide et stagnation, graphiques alignés sommeil · énergie · séances · repas · poids ; graphiques SVG maison, accessibles (survol, clavier, tableau des valeurs)
 - [ ] Sport (séances, minuteur, natation, marche)
 - [ ] Nutrition (menus, recettes, courses)
 - [ ] Suivi quotidien, sommeil, journal photo
