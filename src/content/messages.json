@@ -1,0 +1,30 @@
+{
+  "welcome": {
+    "title": "Daybakh",
+    "slogan": "ta forme, ton rythme, ta victoire",
+    "meaning": "« Daybakh » veut dire « ça va aller » en wolof.",
+    "intro": "Ici, on avance à ton rythme. Chaque petit pas compte, et les jours sans ne sont pas des échecs.",
+    "start": "Commencer"
+  },
+  "health": {
+    "title": "Avant de commencer",
+    "points": [
+      "Daybakh t'accompagne au quotidien, mais ne remplace pas l'avis d'un médecin ou d'un professionnel de santé.",
+      "Avant de reprendre le sport, prends l'avis de ton médecin, surtout après une grossesse, une blessure ou une longue pause.",
+      "Si tu ressens une douleur vive (pas une simple courbature), arrête l'exercice. Si elle persiste, consulte.",
+      "Les calculs affichés sont des repères généraux. Leurs formules et leurs sources sont toujours consultables."
+    ],
+    "accept": "J'ai lu et je comprends",
+    "clearance": "J'ai le feu vert de mon médecin pour le sport (facultatif)"
+  },
+  "blocked": {
+    "minor": "Daybakh est conçue pour les adultes. Pour être accompagné·e dans ton alimentation et ton activité, parles-en à ton médecin ou à l'infirmier·e scolaire : ils sauront te conseiller.",
+    "lowBmi": "Ton IMC est sous 18,5 : Daybakh ne te proposera pas de déficit calorique. Tu peux suivre ta forme et ton sport, et nous t'encourageons à en parler à un professionnel de santé.",
+    "pregnant": "Pendant la grossesse, Daybakh ne propose ni déficit calorique ni programme sportif. Ta sage-femme ou ton médecin est la meilleure personne pour t'accompagner. Félicitations !",
+    "breastfeeding": "Pendant l'allaitement, Daybakh ne propose pas de déficit automatique : tes besoins dépendent de ta production de lait. Ta sage-femme ou ton médecin peut t'aider à les préciser."
+  },
+  "sleepNotice": "Avec moins de 6 h de sommeil, la faim augmente et le corps récupère plus lentement. Ce n'est pas un reproche : c'est ta réalité du moment, et Daybakh s'y adapte (séances modérées, collation l'après-midi, objectif de perte plus doux).",
+  "softDeficitSuggestion": "Avec des nuits courtes, le déficit doux (15 %) est souvent plus facile à tenir. Tu restes libre de ton choix.",
+  "perinealAdvice": "Après une grossesse, un bilan du périnée et des abdominaux (diastasis) avec une sage-femme ou un·e kiné est recommandé avant les exercices de ventre intenses.",
+  "ready": "C'est parti ! Daybakh 💛"
+}

@@ -1,0 +1,35 @@
+{
+  "_doc": "Profil d'exemple (première utilisatrice). Chargé uniquement si l'URL contient ?exemple=1 au premier lancement. Poids, taille et date de naissance restent à saisir.",
+  "exemple": {
+    "sex": "F",
+    "goal": "lose",
+    "deficitLevel": "normal",
+    "pregnant": false,
+    "breastfeeding": "no",
+    "lastDeliveryDate": "2026-01-14",
+    "medicalClearance": true,
+    "perinealCheckDone": "yes",
+    "foodConstraints": [],
+    "household": [
+      { "label": "Moi", "age": 39 },
+      { "label": "Adulte 2", "age": 40 },
+      { "label": "Enfant 1", "age": 10 },
+      { "label": "Enfant 2", "age": 8 },
+      { "label": "Enfant 3", "age": 5 },
+      { "label": "Bébé", "age": 0 }
+    ],
+    "equipment": ["mat", "treadmill"],
+    "homeWorkoutDays": [1, 3, 6],
+    "sessionMinutes": 35,
+    "fixedActivities": [
+      { "day": 5, "kind": "swim", "minutes": 120, "label": "Natation" },
+      { "day": 7, "kind": "walk", "minutes": 50, "label": "Marche" }
+    ],
+    "mealTimes": { "breakfast": "07:00", "lunch": "12:30", "snack": "15:00", "dinner": "19:30-20:00" },
+    "batchCooking": { "day": 6, "slot": "morning" },
+    "breakfastPref": "sweet",
+    "caffeine": { "drinks": true, "cupsPerDay": 1 },
+    "sleepHours": 5,
+    "sleepInterrupted": false
+  }
+}

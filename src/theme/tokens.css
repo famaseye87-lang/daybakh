@@ -1,0 +1,50 @@
+/* Palette P1 « Soleil de Dakar » — contrastes vérifiés (WCAG AA) :
+   texte blanc sur --c-action : 5,4:1 ; texte sur fond : 15,1:1 ; texte secondaire : 6,1:1 */
+:root {
+  --c-brand: #e2603b;          /* terracotta (décor, icône) */
+  --c-action: #b8431f;         /* terracotta foncé (boutons, liens) */
+  --c-on-action: #ffffff;
+  --c-accent: #f2a93b;         /* safran */
+  --c-on-accent: #2b1e16;
+  --c-success: #2f7d5b;        /* vert baobab */
+  --c-bg: #fff6ec;             /* crème */
+  --c-surface: #ffffff;
+  --c-surface-2: #fbeadb;
+  --c-text: #2b1e16;
+  --c-muted: #6b5b50;
+  --c-border: #ead9c8;
+  --c-info-bg: #fdf0d8;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --tap: 48px;
+  --shadow: 0 2px 10px rgba(43, 30, 22, 0.08);
+  --font: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.75rem;
+  --fs-xxl: 2.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-action: #f08a62;
+    --c-on-action: #1e1712;
+    --c-bg: #1e1712;
+    --c-surface: #2a211b;
+    --c-surface-2: #3a2c23;
+    --c-text: #fff3e6;
+    --c-muted: #cdbbaa;
+    --c-border: #4a3a2e;
+    --c-info-bg: #3a2c23;
+    --c-success: #6cc79c;
+    --shadow: none;
+  }
+}
