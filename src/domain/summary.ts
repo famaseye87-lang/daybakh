@@ -102,3 +102,60 @@ export function computeSummary(
     shortSleep: rate.shortSleep
   };
 }
+
+/** Instantané de calcul (historique des recalculs). */
+export function toSnapshot(sm: Summary, dateISO: string): import('../types').CalcSnapshot {
+  return {
+    date: dateISO,
+    weekIndex: sm.week,
+    refWeightKg: sm.weightKg,
+    bmi: sm.bmi,
+    bmr: sm.bmr,
+    nap: sm.nap,
+    tdee: sm.tdee,
+    targetKcal: sm.intake.kcal,
+    floorApplied: sm.intake.floorApplied,
+    proteinMinG: sm.protein.min,
+    proteinMaxG: sm.protein.max,
+    mode: sm.intake.mode
+  };
+}
+
+/**
+ * Repères du jour : poids de référence = dernier recalcul (stable 4 semaines),
+ * maintien si l'objectif a été atteint.
+ */
+export function currentSummary(
+  p: Profile,
+  todayISO: string,
+  opts: { lastSnapshotWeight?: number; goalReached?: boolean; waistCm?: number } = {}
+): Summary {
+  const day = todayISO < p.programStartDate ? p.programStartDate : todayISO;
+  return computeSummary(p, day, {
+    weightKg: opts.lastSnapshotWeight ?? p.startWeightKg,
+    goalReached: opts.goalReached,
+    waistCm: opts.waistCm
+  });
+}
+
+export interface ChangeLine {
+  label: string;
+  before: string;
+  after: string;
+}
+
+/** Ce qui a changé entre deux calculs (affiché après un recalcul ou une modification du profil). */
+export function summaryChanges(a: Summary, b: Summary): ChangeLine[] {
+  const n = (v: number, d = 0) => v.toLocaleString('fr-FR', { maximumFractionDigits: d, minimumFractionDigits: d });
+  const lines: ChangeLine[] = [];
+  const push = (label: string, x: string, y: string) => {
+    if (x !== y) lines.push({ label, before: x, after: y });
+  };
+  push('Poids de référence', `${n(a.weightKg, 1)} kg`, `${n(b.weightKg, 1)} kg`);
+  push('Niveau d’activité', n(a.nap, 1), n(b.nap, 1));
+  push('Dépense journalière', `${n(a.tdee)} kcal`, `${n(b.tdee)} kcal`);
+  push('Repère calorique', `${n(a.intake.kcal)} kcal`, `${n(b.intake.kcal)} kcal`);
+  push('Protéines', `${a.protein.min}–${a.protein.max} g`, `${b.protein.min}–${b.protein.max} g`);
+  push('Boissons', `${n(a.water.min, 1)}–${n(a.water.max, 1)} L`, `${n(b.water.min, 1)}–${n(b.water.max, 1)} L`);
+  return lines;
+}

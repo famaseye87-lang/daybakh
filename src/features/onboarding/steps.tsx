@@ -6,12 +6,15 @@ import { currentBmi } from './draft';
 import { WEEKDAYS, formatDateFR, formatMonthFR } from '../../domain/dates';
 import type { Summary } from '../../domain/summary';
 import msg from '../../content/messages.json';
+import { FIELDS } from '../measures/fields';
 import s from './onboarding.module.css';
 
 export interface StepProps {
   d: Draft;
   set: (patch: Partial<Draft>) => void;
   errors: Record<string, string>;
+  /** 'edit' : modification du profil (le poids de départ n'est plus modifiable) */
+  mode?: 'create' | 'edit';
 }
 
 const fmt = (v: number, digits = 1) => v.toLocaleString('fr-FR', { maximumFractionDigits: digits, minimumFractionDigits: digits });
@@ -19,7 +22,7 @@ const kcal = (v: number) => `${Math.round(v).toLocaleString('fr-FR')} kcal`;
 const dayOptions = WEEKDAYS.map((w) => ({ value: w.value, label: w.short }));
 
 /* ---------- 1. Toi ---------- */
-export function StepToi({ d, set, errors }: StepProps) {
+export function StepToi({ d, set, errors, mode }: StepProps) {
   return (
     <>
       <TextField label="Ton prénom (facultatif)" value={d.firstName} onChange={(v) => set({ firstName: v })} />
@@ -28,8 +31,12 @@ export function StepToi({ d, set, errors }: StepProps) {
       {errors.sex && <p className={s.err}>{errors.sex}</p>}
       <TextField type="date" label="Date de naissance" value={d.birthDate} onChange={(v) => set({ birthDate: v })} error={errors.birthDate} />
       <NumberField label="Taille" unit="cm" value={d.heightCm} onChange={(v) => set({ heightCm: v })} min={120} max={230} error={errors.heightCm} />
-      <NumberField label="Poids actuel" unit="kg" step={0.1} value={d.startWeightKg} onChange={(v) => set({ startWeightKg: v })}
-        hint="Idéalement le matin, à jeun." error={errors.startWeightKg} />
+      {mode === 'edit' ? (
+        <p className={s.muted}>Ton poids se met à jour avec tes mesures (onglet Progrès).</p>
+      ) : (
+        <NumberField label="Poids actuel" unit="kg" step={0.1} value={d.startWeightKg} onChange={(v) => set({ startWeightKg: v })}
+          hint="Idéalement le matin, à jeun." error={errors.startWeightKg} />
+      )}
     </>
   );
 }
@@ -79,7 +86,7 @@ export function StepSante({ d, set, errors }: StepProps) {
 }
 
 /* ---------- 3. Objectif ---------- */
-export function StepObjectif({ d, set, errors }: StepProps) {
+export function StepObjectif({ d, set, errors, mode }: StepProps) {
   const b = currentBmi(d);
   const range = d.heightCm ? healthyRange(d.heightCm) : undefined;
   const ms = d.startWeightKg ? firstMilestone(d.startWeightKg) : undefined;
@@ -88,7 +95,7 @@ export function StepObjectif({ d, set, errors }: StepProps) {
     <>
       {b !== undefined && (
         <Card>
-          <Stat label="Ton IMC aujourd'hui" value={fmt(b)}>
+          <Stat label={mode === 'edit' ? 'Ton IMC de départ' : "Ton IMC aujourd'hui"} value={fmt(b)}>
             <p>IMC = poids ÷ taille². {fmt(d.startWeightKg!)} ÷ ({fmt(d.heightCm! / 100, 2)})² = {fmt(b)}.</p>
             <p>Catégorie OMS : {bmiCategory(b).label}. L'IMC est un repère : il ne distingue pas muscle et graisse, d'où l'intérêt des mensurations.</p>
           </Stat>
@@ -227,15 +234,6 @@ export function StepSommeil({ d, set, errors }: StepProps) {
 }
 
 /* ---------- 7. Premières mesures ---------- */
-const MEASURES: { key: keyof Draft['firstMeasures']; label: string; how: string }[] = [
-  { key: 'waistCm', label: 'Tour de taille', how: 'À mi-distance entre la dernière côte et le haut de la hanche, en fin d’expiration.' },
-  { key: 'bellyCm', label: 'Tour de ventre', how: 'À hauteur du nombril.' },
-  { key: 'hipsCm', label: 'Tour de hanches', how: 'À l’endroit le plus large des fesses.' },
-  { key: 'armRightCm', label: 'Tour de bras droit', how: 'À mi-distance épaule-coude, bras relâché.' },
-  { key: 'armLeftCm', label: 'Tour de bras gauche', how: 'À mi-distance épaule-coude, bras relâché.' },
-  { key: 'thighCm', label: 'Tour de cuisse', how: '15 cm au-dessus du genou, toujours au même endroit.' }
-];
-
 export function StepMesures({ d, set }: StepProps) {
   const fm = d.firstMeasures;
   return (
@@ -243,9 +241,9 @@ export function StepMesures({ d, set }: StepProps) {
       <Card tone="info">
         <p>Toutes facultatives. Mètre ruban souple, posé à plat sans serrer, le matin à jeun. Tu pourras les ajouter plus tard.</p>
       </Card>
-      {MEASURES.map((m) => (
+      {FIELDS.filter((m) => m.key !== 'weightKg').map((m) => (
         <NumberField key={m.key} label={m.label} unit="cm" step={0.5} hint={m.how}
-          value={fm[m.key] as number | undefined}
+          value={fm[m.key as keyof Draft['firstMeasures']] as number | undefined}
           onChange={(v) => set({ firstMeasures: { ...fm, [m.key]: v } })} />
       ))}
     </>

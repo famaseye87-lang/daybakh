@@ -86,7 +86,7 @@ Le workflow relance les tests, reconstruit et publie. Sur les téléphones, un b
 ## Avancement
 
 - [x] Livraison 1 — socle, moteur de calcul testé, premier lancement (accueil, avertissement santé, profil, premières mesures, résumé), écran À propos
-- [ ] Mesures hebdomadaires et recalcul
+- [x] Livraison 2 — mesures hebdomadaires + guide illustré, écarts, progression vers l'objectif, recalcul toutes les 4 semaines, passage en maintien, modification du profil (« ce qui a changé »), effacement des données
 - [ ] Tableau de bord
 - [ ] Sport (séances, minuteur, natation, marche)
 - [ ] Nutrition (menus, recettes, courses)

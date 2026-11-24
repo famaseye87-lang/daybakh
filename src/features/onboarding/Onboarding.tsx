@@ -3,7 +3,7 @@ import { Button, Card, Checkbox, ProgressDots } from '../../components/ui';
 import { Logo } from '../../components/Logo';
 import msg from '../../content/messages.json';
 import { todayISO, nextMondayISO } from '../../domain/dates';
-import { computeSummary } from '../../domain/summary';
+import { computeSummary, toSnapshot } from '../../domain/summary';
 import { completeOnboarding, requestPersistentStorage } from '../../data/repositories';
 import { STEPS, initialDraft, validateStep, isBlockedMinor, draftToProfile, type Draft } from './draft';
 import { StepToi, StepSante, StepObjectif, StepSport, StepRepas, StepSommeil, StepMesures, StepResume } from './steps';
@@ -63,20 +63,7 @@ export function Onboarding() {
     await completeOnboarding(
       profile,
       { date: today, weightKg: profile.startWeightKg, ...d.firstMeasures },
-      {
-        date: today,
-        weekIndex: 1,
-        refWeightKg: sm.weightKg,
-        bmi: sm.bmi,
-        bmr: sm.bmr,
-        nap: sm.nap,
-        tdee: sm.tdee,
-        targetKcal: sm.intake.kcal,
-        floorApplied: sm.intake.floorApplied,
-        proteinMinG: sm.protein.min,
-        proteinMaxG: sm.protein.max,
-        mode: sm.intake.mode
-      }
+      { ...toSnapshot(sm, today), weekIndex: 1 }
     );
     await requestPersistentStorage();
     // App.tsx détecte le nouveau profil et affiche l'application.

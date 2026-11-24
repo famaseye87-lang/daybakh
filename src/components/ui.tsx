@@ -1,5 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { useId } from 'react';
+import { Link } from 'react-router-dom';
 import s from './ui.module.css';
 
 type BtnProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -199,5 +200,14 @@ export function Stat({ label, value, children }: { label: string; value: ReactNo
         </details>
       )}
     </div>
+  );
+}
+
+/** Lien présenté comme un bouton (navigation interne). */
+export function LinkButton({ to, children, variant = 'primary' }: { to: string; children: ReactNode; variant?: 'primary' | 'secondary' }) {
+  return (
+    <Link to={to} className={[s.btn, s.block, s.linkBtn, variant === 'secondary' ? s.secondary : ''].join(' ')}>
+      {children}
+    </Link>
   );
 }

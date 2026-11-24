@@ -30,6 +30,12 @@ export const emptyDraft = (): Draft => ({
   firstMeasures: {}
 });
 
+/** Brouillon à partir d'un profil existant (modification du profil). */
+export function profileToDraft(p: Profile): Draft {
+  const { id: _id, ...rest } = p;
+  return { ...rest, firstMeasures: {} };
+}
+
 /** Brouillon pré-rempli si l'adresse contient ?exemple=1 */
 export function initialDraft(search: string): Draft {
   const d = emptyDraft();

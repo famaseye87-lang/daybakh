@@ -52,3 +52,4 @@
 .statValue { font-weight: 800; font-size: var(--fs-lg); text-align: right; }
 .formula { color: var(--c-muted); font-size: var(--fs-sm); margin-top: var(--space-2); }
 details summary { cursor: pointer; color: var(--c-action); font-weight: 700; min-height: 32px; }
+.linkBtn { text-decoration: none; }

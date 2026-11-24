@@ -1,0 +1,18 @@
+{
+  "_doc": "Guide « Comment se mesurer ». Modifiable sans toucher au code. 'y' = hauteur du repère sur la silhouette (0 = tête, 100 = pieds).",
+  "general": [
+    "Le même jour chaque semaine (lundi conseillé), le matin, à jeun, après être passé·e aux toilettes.",
+    "Mètre ruban souple, posé à plat sur la peau, sans serrer ni comprimer.",
+    "Debout, détendu·e, respiration normale : on mesure en fin d'expiration.",
+    "Toujours au même endroit : c'est la régularité qui rend les chiffres utiles."
+  ],
+  "fields": [
+    { "key": "weightKg", "label": "Poids", "unit": "kg", "y": null, "how": "Même balance, posée sur un sol dur, sans vêtements ou avec les mêmes vêtements légers." },
+    { "key": "waistCm", "label": "Tour de taille", "unit": "cm", "y": 40, "how": "À mi-distance entre la dernière côte et le haut de l'os de la hanche, en fin d'expiration (méthode NICE / OMS)." },
+    { "key": "bellyCm", "label": "Tour de ventre", "unit": "cm", "y": 45, "how": "À hauteur du nombril, ventre relâché." },
+    { "key": "hipsCm", "label": "Tour de hanches", "unit": "cm", "y": 52, "how": "À l'endroit le plus large des fesses, pieds joints." },
+    { "key": "armRightCm", "label": "Tour de bras droit", "unit": "cm", "y": 30, "how": "À mi-distance entre l'épaule et le coude, bras relâché le long du corps." },
+    { "key": "armLeftCm", "label": "Tour de bras gauche", "unit": "cm", "y": 30, "how": "Même repère que pour le bras droit." },
+    { "key": "thighCm", "label": "Tour de cuisse", "unit": "cm", "y": 63, "how": "15 cm au-dessus du genou (convention Daybakh), toujours au même endroit." }
+  ]
+}
