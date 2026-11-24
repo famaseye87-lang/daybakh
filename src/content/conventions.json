@@ -2,8 +2,17 @@
   "_doc": "Seuils et conventions Daybakh. Les valeurs marquées 'convention' sont des choix de conception, pas des données médicales. Modifiables sans toucher au code.",
   "nap": {
     "_source": "Valeurs de NAP : EFSA, Dietary Reference Values for energy, 2013. Seuils en minutes : convention Daybakh.",
-    "thresholdsMinutesPerWeek": [120, 300, 480],
-    "values": [1.4, 1.6, 1.8, 2.0]
+    "thresholdsMinutesPerWeek": [
+      120,
+      300,
+      480
+    ],
+    "values": [
+      1.4,
+      1.6,
+      1.8,
+      2.0
+    ]
   },
   "deficit": {
     "_source": "Consigne projet : déficit de 15 à 20 %.",
@@ -12,8 +21,16 @@
     "startPhase": 0.15,
     "consolidationPhase": 0.15
   },
-  "phases": { "startEndWeek": 4, "lossEndWeek": 12, "consolidationEndWeek": 24 },
-  "kcalFloor": { "_source": "Repères NHLBI (NIH), 1998.", "F": 1200, "M": 1500 },
+  "phases": {
+    "startEndWeek": 4,
+    "lossEndWeek": 12,
+    "consolidationEndWeek": 24
+  },
+  "kcalFloor": {
+    "_source": "Repères NHLBI (NIH), 1998.",
+    "F": 1200,
+    "M": 1500
+  },
   "kcalRounding": 10,
   "protein": {
     "_source": "Leidy et al., Am J Clin Nutr, 2015 : 1,2 à 1,6 g/kg. Poids de référence si IMC > 30 : décision I8.",
@@ -23,25 +40,85 @@
     "obesityBmi": 30,
     "referenceBmi": 25
   },
-  "rate": { "_source": "Helms et al., JISSN, 2014 : 0,5 à 1 % du poids par semaine.", "min": 0.005, "max": 0.01 },
-  "sleep": { "shortNightHours": 6 },
-  "water": { "_source": "Consigne projet 1,5-2 L ; +0,7 L en allaitement : EFSA 2010.", "minL": 1.5, "maxL": 2, "breastfeedingExtraL": 0.7, "glassMl": 250 },
-  "breastfeeding": { "_source": "EFSA 2013 : +500 kcal/j, allaitement exclusif, 6 premiers mois.", "exclusiveExtraKcal": 500, "exclusiveMonths": 6 },
-  "whtr": { "_source": "NICE NG246 (2022).", "healthy": 0.5, "takeAction": 0.6, "maxBmi": 35 },
-  "milestone": { "minLoss": 0.05, "maxLoss": 0.1 },
-  "mealSplit": { "_source": "convention", "breakfast": 0.25, "lunch": 0.35, "snack": 0.1, "dinner": 0.3 },
-  "portions": {
+  "rate": {
+    "_source": "Helms et al., JISSN, 2014 : 0,5 à 1 % du poids par semaine.",
+    "min": 0.005,
+    "max": 0.01
+  },
+  "sleep": {
+    "shortNightHours": 6
+  },
+  "water": {
+    "_source": "Consigne projet 1,5-2 L ; +0,7 L en allaitement : EFSA 2010.",
+    "minL": 1.5,
+    "maxL": 2,
+    "breastfeedingExtraL": 0.7,
+    "glassMl": 250
+  },
+  "breastfeeding": {
+    "_source": "EFSA 2013 : +500 kcal/j, allaitement exclusif, 6 premiers mois.",
+    "exclusiveExtraKcal": 500,
+    "exclusiveMonths": 6
+  },
+  "whtr": {
+    "_source": "NICE NG246 (2022).",
+    "healthy": 0.5,
+    "takeAction": 0.6,
+    "maxBmi": 35
+  },
+  "milestone": {
+    "minLoss": 0.05,
+    "maxLoss": 0.1
+  },
+  "mealSplit": {
     "_source": "convention",
+    "breakfast": 0.25,
+    "lunch": 0.35,
+    "snack": 0.1,
+    "dinner": 0.3
+  },
+  "portions": {
+    "_source": "convention : enfants de moins d'1 an non comptés ; 1-6 ans 0,5 ; 7-11 ans 0,75 ; 12 ans et plus 1",
     "children": [
-      { "maxAge": 6, "coef": 0.5 },
-      { "maxAge": 11, "coef": 0.75 }
+      {
+        "maxAge": 6,
+        "coef": 0.5
+      },
+      {
+        "maxAge": 11,
+        "coef": 0.75
+      }
     ],
-    "adult": 1
+    "adult": 1,
+    "minAge": 1
   },
   "alerts": {
-    "fastLoss": { "weeklyLossOver": 0.01, "consecutiveWeeks": 2 },
-    "plateau": { "tolerance": 0.002, "weeks": 3 }
+    "fastLoss": {
+      "weeklyLossOver": 0.01,
+      "consecutiveWeeks": 2
+    },
+    "plateau": {
+      "tolerance": 0.002,
+      "weeks": 3
+    }
   },
   "recalcEveryWeeks": 4,
-  "minAge": 18
+  "minAge": 18,
+  "plates": {
+    "_source": "Principes du programme de référence, adaptés (consigne projet § E).",
+    "sport": {
+      "protein": 0.35,
+      "veg": 0.35,
+      "starch": 0.3
+    },
+    "light": {
+      "protein": 0.45,
+      "veg": 0.45,
+      "starch": 0.1
+    }
+  },
+  "foodSafety": {
+    "_source": "Repère courant : plats cuisinés à consommer sous 3 jours au réfrigérateur.",
+    "fridgeDays": 3
+  }
 }

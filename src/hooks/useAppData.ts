@@ -3,7 +3,15 @@ import { db } from '../data/db';
 import { META } from '../data/recalcService';
 import { currentSummary, type Summary } from '../domain/summary';
 import { useToday } from './useToday';
-import type { WeekOverride } from '../domain/sport/types';
+import type { WeekOverride, Weekday } from '../domain/sport/types';
+
+export interface NutritionPrefs {
+  freeMeal: { day: Weekday; meal: 'lunch' | 'dinner' };
+  /** Petit-déjeuner et collation : pour moi seule ou pour toute la famille (liste de courses) */
+  breakfastScope: 'me' | 'family';
+  smoothie: boolean;
+}
+export const DEFAULT_NUTRITION_PREFS: NutritionPrefs = { freeMeal: { day: 6, meal: 'dinner' }, breakfastScope: 'me', smoothie: true };
 import type { Profile, Measurement, CalcSnapshot, DailyLog, WorkoutLog, MealTag } from '../types';
 
 export interface AppData {
@@ -23,6 +31,8 @@ export interface AppData {
   weekOverride?: WeekOverride;
   /** Semaines « répétées » pour rester plus longtemps sur un bloc */
   sportWeekOffset: number;
+  /** Réglages de l'assiette */
+  nutritionPrefs: NutritionPrefs;
   summary: Summary;
   today: string;
 }
@@ -46,7 +56,8 @@ export function useAppData(profile: Profile): AppData | undefined {
     return {
       measurements, snapshots, metas, dailyLogs, workoutLogs, mealRatings, dismissed,
       weekOverride: metaValue('weekPlan') as WeekOverride | undefined,
-      sportWeekOffset: (metaValue('sportWeekOffset') as number | undefined) ?? 0
+      sportWeekOffset: (metaValue('sportWeekOffset') as number | undefined) ?? 0,
+      nutritionPrefs: { ...DEFAULT_NUTRITION_PREFS, ...((metaValue('nutritionPrefs') as Partial<NutritionPrefs> | undefined) ?? {}) }
     };
   }, []);
   if (!data) return undefined;
@@ -67,6 +78,7 @@ export function useAppData(profile: Profile): AppData | undefined {
     dismissedAlerts: new Set(data.dismissed),
     weekOverride: data.weekOverride,
     sportWeekOffset: data.sportWeekOffset,
+    nutritionPrefs: data.nutritionPrefs,
     summary: currentSummary(profile, today, {
       lastSnapshotWeight: last?.refWeightKg,
       goalReached: !!goalReachedAt,

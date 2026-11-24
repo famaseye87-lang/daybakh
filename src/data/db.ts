@@ -8,10 +8,11 @@ import type {
   CalcSnapshot,
   MetaEntry
 } from '../types';
+import type { ShoppingItem } from '../domain/nutrition/shopping';
 
 export interface ShoppingList {
   weekStart: string;
-  items: { id: string; label: string; aisle: string; qty?: string; checked: boolean; custom?: boolean }[];
+  items: ShoppingItem[];
 }
 
 export interface Badge {

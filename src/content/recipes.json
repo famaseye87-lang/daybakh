@@ -1,0 +1,364 @@
+{
+  "_doc": "Recettes Daybakh : 30 min maximum, pour toute la famille. Quantités pour 1 portion adulte (jour de sport) ; l'appli les multiplie selon la famille. Rayons : fruits-legumes, boucherie-poisson, cremerie, epicerie, surgeles, boulangerie. 'contains' sert au filtrage des contraintes alimentaires. Modifiable sans toucher au code.",
+  "recipes": [
+    {
+      "id": "porridge-fruits", "name": "Porridge avoine, fromage blanc et fruits", "type": "breakfast", "sweet": true, "cuisine": "francaise", "minutes": 8, "simple": true,
+      "contains": ["lactose", "gluten"],
+      "ingredients": [
+        { "name": "Flocons d'avoine", "qty": 40, "unit": "g", "aisle": "epicerie" },
+        { "name": "Lait demi-écrémé", "qty": 150, "unit": "ml", "aisle": "cremerie" },
+        { "name": "Fromage blanc 3 %", "qty": 100, "unit": "g", "aisle": "cremerie" },
+        { "name": "Fruits rouges surgelés", "qty": 80, "unit": "g", "aisle": "surgeles" },
+        { "name": "Cannelle", "qty": 1, "unit": "pincée", "aisle": "epicerie" }
+      ],
+      "steps": ["Chauffe les flocons dans le lait 3 à 4 min en remuant.", "Verse dans un bol, ajoute le fromage blanc.", "Ajoute les fruits et la cannelle."],
+      "tipFamily": "Les enfants l'aiment avec une banane écrasée à la place des fruits rouges.",
+      "tipPlate": "Le fromage blanc apporte les protéines du matin, utiles quand la nuit a été courte."
+    },
+    {
+      "id": "tartines-yaourt", "name": "Tartines complètes, yaourt et fruit", "type": "breakfast", "sweet": true, "cuisine": "francaise", "minutes": 5, "simple": true,
+      "contains": ["lactose", "gluten"],
+      "ingredients": [
+        { "name": "Pain complet", "qty": 60, "unit": "g", "aisle": "boulangerie" },
+        { "name": "Confiture", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" },
+        { "name": "Yaourt nature", "qty": 2, "unit": "pièce", "aisle": "cremerie" },
+        { "name": "Pomme ou orange", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Toaste le pain.", "Une fine couche de confiture.", "Deux yaourts nature et le fruit."],
+      "tipFamily": "Pour les enfants : un verre de lait à la place d'un yaourt.",
+      "tipPlate": "Deux yaourts = la portion de protéines du matin."
+    },
+    {
+      "id": "bouillie-mil", "name": "Bouillie de mil au lait", "type": "breakfast", "sweet": true, "cuisine": "senegalaise", "minutes": 15, "simple": true,
+      "contains": ["lactose"],
+      "ingredients": [
+        { "name": "Semoule de mil (sankhal)", "qty": 40, "unit": "g", "aisle": "epicerie" },
+        { "name": "Lait demi-écrémé", "qty": 250, "unit": "ml", "aisle": "cremerie" },
+        { "name": "Sucre vanillé", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" },
+        { "name": "Muscade", "qty": 1, "unit": "pincée", "aisle": "epicerie" },
+        { "name": "Banane", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Délaie le mil dans un peu d'eau froide.", "Verse dans le lait chaud et cuis 10 min à feu doux en remuant.", "Parfume au sucre vanillé et à la muscade, sers avec la banane."],
+      "tipFamily": "Prépare une grande casserole : se réchauffe le lendemain avec un peu de lait.",
+      "tipPlate": "Ajoute un yaourt à côté pour plus de protéines."
+    },
+    {
+      "id": "pancakes-avoine", "name": "Pancakes avoine-banane", "type": "breakfast", "sweet": true, "cuisine": "francaise", "minutes": 15, "simple": false,
+      "contains": ["oeuf", "lactose", "gluten"],
+      "ingredients": [
+        { "name": "Flocons d'avoine", "qty": 40, "unit": "g", "aisle": "epicerie" },
+        { "name": "Œufs", "qty": 2, "unit": "pièce", "aisle": "cremerie" },
+        { "name": "Banane", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Lait demi-écrémé", "qty": 50, "unit": "ml", "aisle": "cremerie" },
+        { "name": "Huile de colza", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" }
+      ],
+      "steps": ["Mixe avoine, œufs, banane et lait.", "Cuis de petites louches dans une poêle à peine huilée, 2 min par face.", "Sers avec quelques fruits frais."],
+      "tipFamily": "Parfait le week-end : double les quantités pour toute la tablée.",
+      "tipPlate": "Les deux œufs apportent les protéines."
+    },
+    {
+      "id": "fromage-blanc-muesli", "name": "Fromage blanc, muesli et fruits", "type": "breakfast", "sweet": true, "cuisine": "francaise", "minutes": 3, "simple": true,
+      "contains": ["lactose", "gluten", "fruits-a-coque"],
+      "ingredients": [
+        { "name": "Fromage blanc 3 %", "qty": 150, "unit": "g", "aisle": "cremerie" },
+        { "name": "Muesli sans sucre ajouté", "qty": 30, "unit": "g", "aisle": "epicerie" },
+        { "name": "Kiwi", "qty": 2, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Fromage blanc dans un bol.", "Ajoute le muesli et les kiwis coupés."],
+      "tipFamily": "Version enfants : un peu de miel.",
+      "tipPlate": "Prêt en 3 minutes, idéal les matins pressés."
+    },
+    {
+      "id": "oeufs-tartine", "name": "Œufs brouillés, tartine et tomate", "type": "breakfast", "sweet": false, "cuisine": "francaise", "minutes": 8, "simple": true,
+      "contains": ["oeuf", "gluten"],
+      "ingredients": [
+        { "name": "Œufs", "qty": 2, "unit": "pièce", "aisle": "cremerie" },
+        { "name": "Pain complet", "qty": 50, "unit": "g", "aisle": "boulangerie" },
+        { "name": "Tomates", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Huile d'olive", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" }
+      ],
+      "steps": ["Bats les œufs, cuis-les à feu doux en remuant.", "Toaste le pain, coupe la tomate.", "Un filet d'huile d'olive sur la tomate."],
+      "tipFamily": "Les enfants peuvent avoir un œuf chacun.",
+      "tipPlate": "Le petit-déjeuner salé de la semaine."
+    },
+    {
+      "id": "collation-yaourt-fruit", "name": "Yaourt et fruit", "type": "snack", "cuisine": "francaise", "minutes": 1, "simple": true,
+      "contains": ["lactose"],
+      "ingredients": [
+        { "name": "Yaourt nature", "qty": 1, "unit": "pièce", "aisle": "cremerie" },
+        { "name": "Pomme ou poire", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Un yaourt et un fruit, assis·e, sans écran si possible."],
+      "tipFamily": "Le goûter des enfants, le même.",
+      "tipPlate": "La collation de 15 h évite les fringales du soir."
+    },
+    {
+      "id": "collation-amandes", "name": "Poignée d'amandes et fruit", "type": "snack", "cuisine": "francaise", "minutes": 1, "simple": true,
+      "contains": ["fruits-a-coque"],
+      "ingredients": [
+        { "name": "Amandes nature", "qty": 20, "unit": "g", "aisle": "epicerie" },
+        { "name": "Clémentines", "qty": 2, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Une petite poignée d'amandes (environ 15) et le fruit."],
+      "tipFamily": "Amandes entières : pas avant 4 ans (risque de fausse route).",
+      "tipPlate": "Rassasiant, pratique à emporter."
+    },
+    {
+      "id": "collation-fromage-blanc", "name": "Fromage blanc et fruits rouges", "type": "snack", "cuisine": "francaise", "minutes": 2, "simple": true,
+      "contains": ["lactose"],
+      "ingredients": [
+        { "name": "Fromage blanc 3 %", "qty": 100, "unit": "g", "aisle": "cremerie" },
+        { "name": "Fruits rouges surgelés", "qty": 60, "unit": "g", "aisle": "surgeles" }
+      ],
+      "steps": ["Mélange et déguste."],
+      "tipFamily": "Les enfants peuvent ajouter un peu de miel.",
+      "tipPlate": "Riche en protéines : bonne collation après une nuit courte."
+    },
+    {
+      "id": "collation-tartine-cacahuete", "name": "Tartine complète et beurre de cacahuète", "type": "snack", "cuisine": "francaise", "minutes": 2, "simple": true,
+      "contains": ["gluten", "arachide"],
+      "ingredients": [
+        { "name": "Pain complet", "qty": 30, "unit": "g", "aisle": "boulangerie" },
+        { "name": "Beurre de cacahuète", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" },
+        { "name": "Banane", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Une fine couche de beurre de cacahuète, la banane en rondelles par-dessus ou à côté."],
+      "tipFamily": "Goûter apprécié des enfants.",
+      "tipPlate": "Avant la natation du vendredi, c'est l'idéal."
+    },
+    {
+      "id": "smoothie-vert", "name": "Smoothie vert", "type": "snack", "cuisine": "francaise", "minutes": 5, "simple": true, "smoothie": true,
+      "contains": ["lactose"],
+      "ingredients": [
+        { "name": "Épinards frais", "qty": 40, "unit": "g", "aisle": "fruits-legumes" },
+        { "name": "Pomme verte", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Banane", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Yaourt nature", "qty": 1, "unit": "pièce", "aisle": "cremerie" },
+        { "name": "Citron", "qty": 0.25, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Mixe tout avec un verre d'eau fraîche.", "Ajoute de l'eau pour la texture voulue."],
+      "tipFamily": "Version enfants : plus de banane, moins d'épinards.",
+      "tipPlate": "Optionnel, en collation : il ne remplace jamais un repas."
+    },
+    {
+      "id": "yassa-poulet", "name": "Yassa de poulet allégé", "type": "main", "cuisine": "senegalaise", "minutes": 30, "simple": true, "batch": true,
+      "contains": ["volaille"],
+      "ingredients": [
+        { "name": "Blanc ou haut de cuisse de poulet sans peau", "qty": 130, "unit": "g", "aisle": "boucherie-poisson" },
+        { "name": "Oignons", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Citron", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Moutarde", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" },
+        { "name": "Haricots verts surgelés", "qty": 150, "unit": "g", "aisle": "surgeles" },
+        { "name": "Riz complet", "qty": 60, "unit": "g", "aisle": "epicerie" },
+        { "name": "Huile de colza", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" }
+      ],
+      "steps": ["Lance le riz complet.", "Fais dorer le poulet en morceaux dans l'huile.", "Ajoute les oignons émincés, le jus de citron, la moutarde et un peu d'eau ; laisse mijoter 15 min.", "Cuis les haricots verts à la vapeur à côté."],
+      "tipFamily": "Plat préféré de toute la famille : les enfants prennent plus de riz.",
+      "tipPlate": "Jour léger : haricots verts en grande quantité, 2 cuillères de riz seulement."
+    },
+    {
+      "id": "mafe-leger", "name": "Mafé léger au poulet", "type": "main", "cuisine": "senegalaise", "minutes": 30, "simple": false, "batch": true,
+      "contains": ["volaille", "arachide"],
+      "ingredients": [
+        { "name": "Blanc de poulet", "qty": 120, "unit": "g", "aisle": "boucherie-poisson" },
+        { "name": "Pâte d'arachide", "qty": 1, "unit": "c. à s.", "aisle": "epicerie" },
+        { "name": "Concentré de tomate", "qty": 1, "unit": "c. à s.", "aisle": "epicerie" },
+        { "name": "Carottes", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Chou", "qty": 100, "unit": "g", "aisle": "fruits-legumes" },
+        { "name": "Riz complet", "qty": 60, "unit": "g", "aisle": "epicerie" },
+        { "name": "Oignons", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Lance le riz.", "Fais revenir oignon et poulet, ajoute le concentré de tomate et 300 ml d'eau.", "Délaie la pâte d'arachide dans un peu de sauce, ajoute-la avec carottes et chou.", "Mijote 20 min à feu doux."],
+      "tipFamily": "1 cuillère de pâte d'arachide par adulte suffit pour le goût.",
+      "tipPlate": "Beaucoup de légumes dans ton assiette, sauce avec modération."
+    },
+    {
+      "id": "thieb-leger", "name": "Thiéboudienne express allégée", "type": "main", "cuisine": "senegalaise", "minutes": 30, "simple": false, "batch": true,
+      "contains": ["poisson"],
+      "ingredients": [
+        { "name": "Filet de poisson blanc (colin, cabillaud)", "qty": 130, "unit": "g", "aisle": "boucherie-poisson" },
+        { "name": "Riz brisé", "qty": 60, "unit": "g", "aisle": "epicerie" },
+        { "name": "Concentré de tomate", "qty": 1, "unit": "c. à s.", "aisle": "epicerie" },
+        { "name": "Carottes", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Chou", "qty": 100, "unit": "g", "aisle": "fruits-legumes" },
+        { "name": "Aubergine", "qty": 0.3, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Persil et ail (roff)", "qty": 1, "unit": "c. à s.", "aisle": "fruits-legumes" },
+        { "name": "Huile de colza", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" }
+      ],
+      "steps": ["Farcis le poisson de roff (persil, ail, piment doux).", "Dans la cocotte, peu d'huile, concentré de tomate et 500 ml d'eau ; ajoute les légumes 10 min.", "Ajoute le poisson 8 min, puis retire poisson et légumes.", "Cuis le riz dans le bouillon, à couvert, jusqu'à absorption."],
+      "tipFamily": "Version de semaine du plat du dimanche : moins d'huile, autant de goût.",
+      "tipPlate": "Une bonne moitié de légumes, le poisson, et le riz en petite quantité les jours légers."
+    },
+    {
+      "id": "thiou-poisson", "name": "Thiou de poisson aux légumes", "type": "main", "cuisine": "senegalaise", "minutes": 30, "simple": true,
+      "contains": ["poisson"],
+      "ingredients": [
+        { "name": "Filet de poisson blanc", "qty": 130, "unit": "g", "aisle": "boucherie-poisson" },
+        { "name": "Tomates concassées", "qty": 150, "unit": "g", "aisle": "epicerie" },
+        { "name": "Courgette", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Oignons", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Pommes de terre", "qty": 150, "unit": "g", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Fais revenir l'oignon, ajoute tomates et 200 ml d'eau.", "Ajoute pommes de terre et courgette en morceaux, 12 min.", "Pose le poisson sur les légumes, couvre, 8 min."],
+      "tipFamily": "Sauce douce, les enfants adorent tremper du pain.",
+      "tipPlate": "Jour léger : une seule pomme de terre, plus de courgette."
+    },
+    {
+      "id": "salade-niebe", "name": "Salade de niébé au thon", "type": "main", "cuisine": "senegalaise", "minutes": 10, "simple": true,
+      "contains": ["poisson"],
+      "ingredients": [
+        { "name": "Niébé (haricots à œil noir) en conserve", "qty": 120, "unit": "g", "aisle": "epicerie" },
+        { "name": "Thon au naturel", "qty": 80, "unit": "g", "aisle": "epicerie" },
+        { "name": "Tomates", "qty": 1, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Concombre", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Oignon rouge", "qty": 0.25, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Huile d'olive", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" },
+        { "name": "Citron", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Rince et égoutte le niébé.", "Coupe tomate, concombre et oignon.", "Mélange avec le thon, l'huile et le jus de citron."],
+      "tipFamily": "Se garde 2 jours au frais : parfait pour les déjeuners.",
+      "tipPlate": "Le niébé compte comme féculent : une portion raisonnable, beaucoup de crudités."
+    },
+    {
+      "id": "brochettes-attieke", "name": "Brochettes de poulet, légumes et attiéké", "type": "main", "cuisine": "senegalaise", "minutes": 25, "simple": true,
+      "contains": ["volaille"],
+      "ingredients": [
+        { "name": "Blanc de poulet", "qty": 130, "unit": "g", "aisle": "boucherie-poisson" },
+        { "name": "Poivron", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Oignons", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Attiéké", "qty": 70, "unit": "g", "aisle": "surgeles" },
+        { "name": "Salade verte", "qty": 50, "unit": "g", "aisle": "fruits-legumes" },
+        { "name": "Citron", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Marine le poulet en cubes avec citron, ail et épices 10 min.", "Enfile sur des piques avec poivron et oignon.", "Cuis 12 min à la poêle-grill ou au four.", "Réchauffe l'attiéké à la vapeur, sers avec la salade."],
+      "tipFamily": "Les enfants montent leurs brochettes eux-mêmes.",
+      "tipPlate": "Jour léger : double salade, petite portion d'attiéké."
+    },
+    {
+      "id": "ndambe", "name": "Ndambé léger (niébé à la tomate)", "type": "main", "cuisine": "senegalaise", "minutes": 25, "simple": true, "batch": true,
+      "contains": ["oeuf"],
+      "ingredients": [
+        { "name": "Niébé en conserve", "qty": 150, "unit": "g", "aisle": "epicerie" },
+        { "name": "Tomates concassées", "qty": 120, "unit": "g", "aisle": "epicerie" },
+        { "name": "Oignons", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Œufs", "qty": 2, "unit": "pièce", "aisle": "cremerie" },
+        { "name": "Épinards surgelés", "qty": 120, "unit": "g", "aisle": "surgeles" }
+      ],
+      "steps": ["Fais revenir l'oignon, ajoute tomates et niébé, 10 min.", "Ajoute les épinards 5 min.", "Sers avec un œuf dur ou au plat par personne."],
+      "tipFamily": "Traditionnellement en sandwich : pain complet pour les enfants.",
+      "tipPlate": "Repas végétarien : l'œuf complète les protéines."
+    },
+    {
+      "id": "poulet-poelee-quinoa", "name": "Poêlée de poulet, légumes verts et quinoa", "type": "main", "cuisine": "francaise", "minutes": 25, "simple": true,
+      "contains": ["volaille"],
+      "ingredients": [
+        { "name": "Blanc de poulet", "qty": 130, "unit": "g", "aisle": "boucherie-poisson" },
+        { "name": "Brocolis surgelés", "qty": 150, "unit": "g", "aisle": "surgeles" },
+        { "name": "Courgette", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Quinoa", "qty": 60, "unit": "g", "aisle": "epicerie" },
+        { "name": "Huile d'olive", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" }
+      ],
+      "steps": ["Cuis le quinoa 12 min.", "Saisis le poulet en lamelles, ajoute courgette et brocolis, 8 min.", "Assaisonne (herbes, ail, citron)."],
+      "tipFamily": "Remplace le quinoa par des pâtes pour les enfants s'ils préfèrent.",
+      "tipPlate": "L'assiette type d'un jour de sport."
+    },
+    {
+      "id": "saumon-papillote", "name": "Saumon en papillote, haricots verts et pommes de terre", "type": "main", "cuisine": "francaise", "minutes": 25, "simple": true,
+      "contains": ["poisson"],
+      "ingredients": [
+        { "name": "Pavé de saumon", "qty": 120, "unit": "g", "aisle": "boucherie-poisson" },
+        { "name": "Haricots verts surgelés", "qty": 150, "unit": "g", "aisle": "surgeles" },
+        { "name": "Pommes de terre", "qty": 150, "unit": "g", "aisle": "fruits-legumes" },
+        { "name": "Citron", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" }
+      ],
+      "steps": ["Cuis les pommes de terre à l'eau 20 min.", "Saumon en papillote avec citron et aneth, 15 min au four à 200 °C.", "Haricots verts à la vapeur."],
+      "tipFamily": "Poisson gras une fois par semaine pour toute la famille.",
+      "tipPlate": "Jour léger : 1 pomme de terre, beaucoup de haricots."
+    },
+    {
+      "id": "omelette-legumes", "name": "Omelette aux légumes et salade", "type": "main", "cuisine": "francaise", "minutes": 15, "simple": true,
+      "contains": ["oeuf", "gluten"],
+      "ingredients": [
+        { "name": "Œufs", "qty": 3, "unit": "pièce", "aisle": "cremerie" },
+        { "name": "Poivron", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Champignons", "qty": 80, "unit": "g", "aisle": "fruits-legumes" },
+        { "name": "Salade verte", "qty": 60, "unit": "g", "aisle": "fruits-legumes" },
+        { "name": "Pain complet", "qty": 40, "unit": "g", "aisle": "boulangerie" }
+      ],
+      "steps": ["Fais revenir poivron et champignons 5 min.", "Verse les œufs battus, cuis à feu doux.", "Sers avec la salade et le pain."],
+      "tipFamily": "Une omelette géante coupée en parts pour toute la famille.",
+      "tipPlate": "Jour léger : pain facultatif."
+    },
+    {
+      "id": "chili-leger", "name": "Chili léger au bœuf et haricots rouges", "type": "main", "cuisine": "francaise", "minutes": 30, "simple": true, "batch": true,
+      "contains": ["viande"],
+      "ingredients": [
+        { "name": "Bœuf haché 5 %", "qty": 100, "unit": "g", "aisle": "boucherie-poisson" },
+        { "name": "Haricots rouges en conserve", "qty": 100, "unit": "g", "aisle": "epicerie" },
+        { "name": "Tomates concassées", "qty": 150, "unit": "g", "aisle": "epicerie" },
+        { "name": "Poivron", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Oignons", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Riz complet", "qty": 40, "unit": "g", "aisle": "epicerie" }
+      ],
+      "steps": ["Fais revenir oignon et poivron, ajoute la viande.", "Ajoute tomates, haricots rouges, cumin et paprika ; 20 min.", "Sers avec un peu de riz."],
+      "tipFamily": "Épices douces pour les enfants, piment à part pour les grands.",
+      "tipPlate": "Haricots + riz = féculents : petite portion de riz, salade en plus."
+    },
+    {
+      "id": "gratin-courgettes-dinde", "name": "Gratin léger courgettes et dinde", "type": "main", "cuisine": "francaise", "minutes": 30, "simple": false, "batch": true,
+      "contains": ["volaille", "lactose"],
+      "ingredients": [
+        { "name": "Escalope de dinde", "qty": 120, "unit": "g", "aisle": "boucherie-poisson" },
+        { "name": "Courgette", "qty": 1.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Lait demi-écrémé", "qty": 50, "unit": "ml", "aisle": "cremerie" },
+        { "name": "Fromage râpé", "qty": 15, "unit": "g", "aisle": "cremerie" },
+        { "name": "Pâtes complètes", "qty": 50, "unit": "g", "aisle": "epicerie" }
+      ],
+      "steps": ["Cuis les pâtes.", "Fais revenir la dinde en dés, puis les courgettes en rondelles.", "Mets dans un plat avec les pâtes, le lait et le fromage ; 15 min au four à 200 °C."],
+      "tipFamily": "Se réchauffe très bien : idéal en batch cooking.",
+      "tipPlate": "Jour léger : sers-toi surtout en courgettes et dinde."
+    },
+    {
+      "id": "soupe-lentilles", "name": "Soupe de lentilles corail et carottes", "type": "main", "cuisine": "francaise", "minutes": 25, "simple": true, "batch": true,
+      "contains": ["lactose"],
+      "ingredients": [
+        { "name": "Lentilles corail", "qty": 60, "unit": "g", "aisle": "epicerie" },
+        { "name": "Carottes", "qty": 2, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Oignons", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Lait de coco léger", "qty": 30, "unit": "ml", "aisle": "epicerie" },
+        { "name": "Yaourt nature", "qty": 1, "unit": "pièce", "aisle": "cremerie" }
+      ],
+      "steps": ["Fais revenir l'oignon, ajoute carottes, lentilles et 400 ml d'eau ; 20 min.", "Mixe avec le lait de coco et un peu de curry doux.", "Sers avec le yaourt à côté (ou un œuf dur)."],
+      "tipFamily": "Une grande marmite pour deux soirs.",
+      "tipPlate": "Ajoute un œuf ou un yaourt pour compléter les protéines."
+    },
+    {
+      "id": "steak-brocolis-patate", "name": "Steak haché, brocolis et patate douce rôtie", "type": "main", "cuisine": "francaise", "minutes": 30, "simple": true,
+      "contains": ["viande"],
+      "ingredients": [
+        { "name": "Steak haché 5 %", "qty": 1, "unit": "pièce", "aisle": "boucherie-poisson" },
+        { "name": "Brocolis surgelés", "qty": 150, "unit": "g", "aisle": "surgeles" },
+        { "name": "Patate douce", "qty": 150, "unit": "g", "aisle": "fruits-legumes" },
+        { "name": "Huile d'olive", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" }
+      ],
+      "steps": ["Patate douce en cubes, huile, 25 min au four à 210 °C.", "Brocolis à la vapeur 8 min.", "Steak à la poêle 3 min par face."],
+      "tipFamily": "Les enfants adorent les « frites » de patate douce.",
+      "tipPlate": "Jour de sport : une belle portion de patate douce."
+    },
+    {
+      "id": "salade-pates-thon", "name": "Salade de pâtes complètes, thon et crudités", "type": "main", "cuisine": "francaise", "minutes": 15, "simple": true,
+      "contains": ["poisson", "gluten"],
+      "ingredients": [
+        { "name": "Pâtes complètes", "qty": 60, "unit": "g", "aisle": "epicerie" },
+        { "name": "Thon au naturel", "qty": 100, "unit": "g", "aisle": "epicerie" },
+        { "name": "Tomates cerises", "qty": 100, "unit": "g", "aisle": "fruits-legumes" },
+        { "name": "Concombre", "qty": 0.5, "unit": "pièce", "aisle": "fruits-legumes" },
+        { "name": "Maïs en conserve", "qty": 30, "unit": "g", "aisle": "epicerie" },
+        { "name": "Huile d'olive", "qty": 1, "unit": "c. à c.", "aisle": "epicerie" }
+      ],
+      "steps": ["Cuis les pâtes, rafraîchis-les.", "Ajoute thon, tomates, concombre et maïs.", "Assaisonne d'huile, citron et herbes."],
+      "tipFamily": "Facile à emporter le midi.",
+      "tipPlate": "Plus de crudités que de pâtes dans ton assiette."
+    }
+  ]
+}

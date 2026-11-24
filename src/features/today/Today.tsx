@@ -7,6 +7,8 @@ import { META } from '../../data/recalcService';
 import type { AppData } from '../../hooks/useAppData';
 import msg from '../../content/messages.json';
 import { activeAlerts } from '../progress/alerts';
+import { nutritionContext } from '../nutrition/useNutrition';
+import { MealLines, PlateBadge } from '../nutrition/MealLines';
 import { sportContext } from '../sport/useSport';
 import { sessionPath } from '../sport/SportHome';
 import { SESSION_LABEL } from '../../domain/sport/week';
@@ -38,6 +40,7 @@ function RecalcCard({ data }: { data: AppData }) {
 export function Today({ data }: { data: AppData }) {
   const { profile: p, summary: sm, today } = data;
   const ctx = sportContext(data);
+  const nut = nutritionContext(data);
   const started = today >= p.programStartDate;
   const hello = p.firstName ? `Bonjour ${p.firstName} !` : 'Bonjour !';
   const isMonday = new Date(today + 'T12:00:00').getDay() === 1;
@@ -96,6 +99,16 @@ export function Today({ data }: { data: AppData }) {
         </Card>
       )}
 
+      <Card>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+          <h2 style={{ margin: 0 }}>Ton assiette du jour</h2>
+          <PlateBadge type={nut.todayMenu.plate} />
+        </div>
+        <MealLines day={nut.todayMenu} snackTime={p.mealTimes.snack} />
+        <div style={{ height: 8 }} />
+        <LinkButton variant="secondary" to="/assiette">Voir l'assiette</LinkButton>
+      </Card>
+
       {needsMeasure && (
         <Card>
           <h2>{isMonday ? "C'est lundi : ta mesure" : 'Ta mesure de la semaine'}</h2>
@@ -111,7 +124,7 @@ export function Today({ data }: { data: AppData }) {
         <Stat label="Boissons" value={`${n(sm.water.min, 1)}–${n(sm.water.max, 1)} L`} />
       </Card>
       <Card tone="info">
-        <p>Menu du jour, eau et sommeil s'afficheront ici dans les prochaines livraisons.</p>
+        <p>Le suivi de l'eau, du sommeil et le journal photo arrivent dans la prochaine livraison.</p>
       </Card>
     </>
   );

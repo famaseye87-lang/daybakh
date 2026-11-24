@@ -9,7 +9,6 @@ import { Onboarding } from './features/onboarding/Onboarding';
 import { TabBar } from './features/shell/TabBar';
 import { Today } from './features/today/Today';
 import { Me } from './features/shell/Me';
-import { Placeholder } from './features/shell/Placeholder';
 import { About } from './features/about/About';
 import { MeasuresPage } from './features/measures/MeasuresPage';
 import { MeasureForm } from './features/measures/MeasureForm';
@@ -24,6 +23,13 @@ import { SessionPreview } from './features/sport/SessionPreview';
 import { SessionPlayer } from './features/sport/SessionPlayer';
 import { SwimPage } from './features/sport/SwimPage';
 import { WalkPage } from './features/sport/WalkPage';
+import { NutritionHome } from './features/nutrition/NutritionHome';
+import { WeekMenuPage } from './features/nutrition/WeekMenuPage';
+import { RecipePage } from './features/nutrition/RecipePage';
+import { RecipeList } from './features/nutrition/RecipeList';
+import { ShoppingPage } from './features/nutrition/ShoppingPage';
+import { BatchPage } from './features/nutrition/BatchPage';
+import { NutritionSettings } from './features/nutrition/NutritionSettings';
 import { Logo } from './components/Logo';
 import s from './features/shell/shell.module.css';
 
@@ -56,7 +62,13 @@ function MainApp({ profile }: { profile: Profile }) {
           <Route path="/sport/seance/:kind/go" element={<SessionPlayer data={data} />} />
           <Route path="/sport/natation" element={<SwimPage data={data} />} />
           <Route path="/sport/marche" element={<WalkPage data={data} />} />
-          <Route path="/assiette" element={<Placeholder title="Assiette" text="Tes menus, les recettes familiales, la liste de courses et le journal photo." />} />
+          <Route path="/assiette" element={<NutritionHome data={data} />} />
+          <Route path="/assiette/semaine" element={<WeekMenuPage data={data} />} />
+          <Route path="/assiette/recette/:id" element={<RecipePage data={data} />} />
+          <Route path="/assiette/recettes" element={<RecipeList data={data} />} />
+          <Route path="/assiette/courses" element={<ShoppingPage data={data} />} />
+          <Route path="/assiette/batch" element={<BatchPage data={data} />} />
+          <Route path="/assiette/reglages" element={<NutritionSettings data={data} />} />
           <Route path="/progres" element={<MeasuresPage data={data} />} />
           <Route path="/progres/mesure" element={<MeasureForm data={data} />} />
           <Route path="/progres/mesure/:id" element={<MeasureForm data={data} />} />
