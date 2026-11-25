@@ -93,6 +93,7 @@ export function Onboarding() {
   if (phase === 'welcome') {
     return (
       <main className={s.hero}>
+        <div className={s.heroCard}>
         <Logo size={120} />
         <h1 className={s.brand} tabIndex={-1} ref={titleRef}>{msg.welcome.title}</h1>
         <p className={s.slogan}>{msg.welcome.slogan}</p>
@@ -105,6 +106,7 @@ export function Onboarding() {
         <Button variant="ghost" onClick={() => restoreInput.current?.click()}>J'ai une sauvegarde : la restaurer</Button>
         <input ref={restoreInput} type="file" accept="application/json,.json" style={{ display: 'none' }} aria-label="Fichier de sauvegarde" onChange={(e) => restore(e.target.files?.[0])} />
         {restoreMsg && <p className={s.err} role="alert">{restoreMsg}</p>}
+        </div>
       </main>
     );
   }

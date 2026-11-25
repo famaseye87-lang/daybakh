@@ -44,7 +44,7 @@ import s from './features/shell/shell.module.css';
 function Splash() {
   return (
     <div className={s.splash} aria-busy="true">
-      <Logo size={96} />
+      <div className={s.splashLogo}><Logo size={112} /></div>
     </div>
   );
 }

@@ -51,7 +51,7 @@ export default defineConfig(({ command, isPreview }) => ({
         scope: '.',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#FFF7EA',
+        background_color: '#22358C',
         theme_color: '#22358C',
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },

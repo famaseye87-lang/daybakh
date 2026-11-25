@@ -28,7 +28,9 @@
   display: flex; gap: var(--space-3); align-items: center; justify-content: space-between;
   background: var(--c-text); color: var(--c-bg); padding: var(--space-3) var(--space-4); border-radius: var(--radius);
 }
-.splash { min-height: 100dvh; display: grid; place-items: center; }
+/* Écran de chargement : tissu wax indigo, logo dans un cadre écru. */
+.splash { min-height: 100dvh; display: grid; place-items: center; background: var(--wax-fabric); }
+.splashLogo { line-height: 0; padding: 14px; background: var(--c-cream); border: 3px solid var(--c-ink); border-radius: 40px; box-shadow: 5px 6px 0 var(--c-ink); }
 .muted { color: var(--c-muted); }
 .menu { display: flex; flex-direction: column; }
 .menu a { display: flex; flex-direction: column; justify-content: center; min-height: 52px; padding: var(--space-2) 0; border-bottom: 1px dashed var(--c-border); color: var(--c-text); text-decoration: none; font-weight: 700; }

@@ -13,6 +13,16 @@
   --pattern-a: rgba(34, 53, 140, 0.07);   /* cercles indigo */
   --pattern-b: rgba(209, 64, 42, 0.08);   /* points rouges */
   --pattern-sun: rgba(245, 179, 36, 0.16);
+  --c-cream: #fff7ea;
+  /* Tissu wax : fond indigo, « yeux » concentriques safran/rouge, pois fuchsia et émeraude, semis de points écrus. */
+  --wax-fabric:
+    radial-gradient(circle, #f5b324 0 6px, transparent 6.5px 11px, #d1402a 11.5px 14.5px,
+      transparent 15px 20px, #f5b324 20.5px 23.5px, transparent 24px) 0 0 / 80px 80px,
+    radial-gradient(circle, #c2266f 0 6px, transparent 6.5px 10px, #fff7ea 10.5px 12px, transparent 12.5px) 40px 40px / 80px 80px,
+    radial-gradient(circle, #0f9a70 0 3px, transparent 3.5px) 40px 0 / 80px 80px,
+    radial-gradient(circle, #0e8fa3 0 3px, transparent 3.5px) 0 40px / 80px 80px,
+    radial-gradient(circle, rgba(255, 247, 234, 0.28) 0 1.5px, transparent 2px) 20px 20px / 20px 20px,
+    #22358c;
   --sticker: 3px 4px 0 var(--c-ink);
   --sticker-sm: 2px 3px 0 var(--c-ink);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
