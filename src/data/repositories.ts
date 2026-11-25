@@ -2,7 +2,12 @@ import { db } from './db';
 import type { Profile, Measurement, CalcSnapshot } from '../types';
 
 export async function getProfile(): Promise<Profile | null> {
-  return (await db.profile.get('me')) ?? null;
+  try {
+    return (await db.profile.get('me')) ?? null;
+  } catch {
+    // Base indisponible (navigation privée stricte, données de sites bloquées) : on affiche l'accueil avec un avertissement.
+    return null;
+  }
 }
 
 export async function saveProfile(p: Profile): Promise<void> {

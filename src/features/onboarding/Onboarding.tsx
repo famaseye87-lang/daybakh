@@ -5,6 +5,9 @@ import msg from '../../content/messages.json';
 import { todayISO, nextMondayISO } from '../../domain/dates';
 import { computeSummary, toSnapshot } from '../../domain/summary';
 import { completeOnboarding, requestPersistentStorage } from '../../data/repositories';
+import { parseBackup } from '../../domain/export/backup';
+import { importBackup } from '../../data/backupService';
+import { StorageWarning } from '../shell/StorageWarning';
 import { STEPS, initialDraft, validateStep, isBlockedMinor, draftToProfile, type Draft } from './draft';
 import { StepToi, StepSante, StepObjectif, StepSport, StepRepas, StepSommeil, StepMesures, StepResume } from './steps';
 import s from './onboarding.module.css';
@@ -21,6 +24,18 @@ export function Onboarding() {
   const [i, setI] = useState(0);
   const [showErrors, setShowErrors] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [restoreMsg, setRestoreMsg] = useState<string | null>(null);
+  const restoreInput = useRef<HTMLInputElement>(null);
+  const restore = async (f?: File) => {
+    setRestoreMsg(null);
+    if (!f) return;
+    const r = parseBackup(await f.text());
+    if (restoreInput.current) restoreInput.current.value = '';
+    if (!r.ok) return setRestoreMsg(r.error);
+    await importBackup(r.backup, today);
+    // App.tsx détecte le profil restauré et ouvre l'application.
+  };
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   const step = STEPS[i];
@@ -57,16 +72,22 @@ export function Onboarding() {
 
   const finish = async () => {
     setSaving(true);
-    const now = new Date().toISOString();
-    const profile = draftToProfile(d, now, programStart, acceptedAt);
-    const sm = computeSummary(profile, programStart);
-    await completeOnboarding(
-      profile,
-      { date: today, weightKg: profile.startWeightKg, ...d.firstMeasures },
-      { ...toSnapshot(sm, today), weekIndex: 1 }
-    );
-    await requestPersistentStorage();
-    // App.tsx détecte le nouveau profil et affiche l'application.
+    setSaveError(null);
+    try {
+      const now = new Date().toISOString();
+      const profile = draftToProfile(d, now, programStart, acceptedAt);
+      const sm = computeSummary(profile, programStart);
+      await completeOnboarding(
+        profile,
+        { date: today, weightKg: profile.startWeightKg, ...d.firstMeasures },
+        { ...toSnapshot(sm, today), weekIndex: 1 }
+      );
+      await requestPersistentStorage();
+      // App.tsx détecte le nouveau profil et affiche l'application.
+    } catch {
+      setSaving(false);
+      setSaveError('Ton profil n’a pas pu être enregistré sur ce téléphone. Vérifie que tu n’es pas en navigation privée, puis réessaie.');
+    }
   };
 
   if (phase === 'welcome') {
@@ -78,6 +99,12 @@ export function Onboarding() {
         <p className={s.muted}>{msg.welcome.meaning}</p>
         <p>{msg.welcome.intro}</p>
         <Button onClick={() => setPhase('health')}>{msg.welcome.start}</Button>
+        <div style={{ maxWidth: 420, textAlign: 'left', marginTop: 16 }}>
+          <StorageWarning place="welcome" />
+        </div>
+        <Button variant="ghost" onClick={() => restoreInput.current?.click()}>J'ai une sauvegarde : la restaurer</Button>
+        <input ref={restoreInput} type="file" accept="application/json,.json" style={{ display: 'none' }} aria-label="Fichier de sauvegarde" onChange={(e) => restore(e.target.files?.[0])} />
+        {restoreMsg && <p className={s.err} role="alert">{restoreMsg}</p>}
       </main>
     );
   }
@@ -127,6 +154,7 @@ export function Onboarding() {
       {step.key === 'mesures' && <StepMesures {...props} />}
       {step.key === 'resume' && summary && <StepResume d={d} summary={summary} programStart={programStart} />}
 
+      {saveError && <p className={s.err} role="alert">{saveError}</p>}
       {showErrors && Object.keys(errors).length > 0 && (
         <p className={s.err} role="alert">Il manque une ou deux infos, regarde juste au-dessus 🙂</p>
       )}

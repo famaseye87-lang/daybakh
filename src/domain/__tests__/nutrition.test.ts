@@ -115,3 +115,19 @@ describe('Batch cooking', () => {
     expect(batchPlan(m, 'miniBatch', 4).map((x) => x.forDays[0])).toEqual([3, 4]);
   });
 });
+
+import { mergeShoppingLists } from '../nutrition/shopping';
+describe('Liste de courses : nombre de parts', () => {
+  const m = buildWeekMenu(opts());
+  it('plus de parts → plus de quantités', () => {
+    const qty = (n: number) => buildShoppingList(m, n, 'me').find((i) => i.label === 'Oignons')!.qty;
+    expect(Number(qty(6))).toBeGreaterThan(Number(qty(4)));
+  });
+  it('régénérer garde les cases cochées et les articles ajoutés', () => {
+    const a = buildShoppingList(m, 4, 'me');
+    const prev = [{ ...a[0], checked: true }, ...a.slice(1), { id: 'c1', label: 'Lessive', aisle: 'epicerie' as const, checked: false, custom: true, qty: '1' }];
+    const merged = mergeShoppingLists(prev, buildShoppingList(m, 6, 'me'));
+    expect(merged.find((i) => i.id === a[0].id)?.checked).toBe(true);
+    expect(merged.some((i) => i.label === 'Lessive' && i.qty === '1')).toBe(true);
+  });
+});

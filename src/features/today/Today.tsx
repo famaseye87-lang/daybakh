@@ -13,6 +13,7 @@ import { DailyCard } from '../daily/DailyCard';
 import { SleepCard } from '../daily/SleepCard';
 import { WeekScoreCard, NewBadgeCard } from '../daily/WeekScoreCard';
 import { ExportReminderCard, InstallBanner } from '../settings/Banners';
+import { StorageWarning } from '../shell/StorageWarning';
 import { sportContext } from '../sport/useSport';
 import { sessionPath } from '../sport/SportHome';
 import { SESSION_LABEL } from '../../domain/sport/week';
@@ -56,6 +57,7 @@ export function Today({ data }: { data: AppData }) {
       <Header />
       <h1>{hello}</h1>
 
+      <StorageWarning place="app" />
       <NewBadgeCard data={data} />
       <ExportReminderCard data={data} />
 

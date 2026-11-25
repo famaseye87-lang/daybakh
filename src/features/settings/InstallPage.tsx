@@ -32,6 +32,7 @@ export function InstallPage() {
           <li>Fais défiler et choisis <strong>« Sur l'écran d'accueil »</strong>.</li>
           <li>Touche <strong>Ajouter</strong> : l'icône soleil de Daybakh apparaît sur ton écran.</li>
         </ol>
+        <p style={{ fontSize: '0.875rem' }}><strong>Important :</strong> sur iPhone, l'appli installée et l'onglet Safari ne partagent pas leurs données. Après l'installation, ouvre toujours Daybakh par l'icône. Si tu avais déjà commencé dans Safari, exporte ta sauvegarde depuis Safari (Moi → Mes données), puis restaure-la dans l'appli installée.</p>
       </Card>
       <Card>
         <h2>Sur Android {platform === 'android' && '(ton téléphone)'}</h2>

@@ -132,7 +132,11 @@ export function SessionPlayer({ data }: { data: AppData }) {
         </div>
         <h1>Prête ? Prêt ?</h1>
         <p>Pose le téléphone à portée de vue, prépare ton tapis et une bouteille d'eau.</p>
-        <p className={s.muted}>Le son et la vibration t'indiquent les changements. L'écran reste allumé si ton téléphone le permet.</p>
+        <p className={s.muted}>Des bips (et la vibration sur Android) t'indiquent les changements. L'écran reste allumé si ton téléphone le permet.</p>
+        <div className={s.note}>
+          <p style={{ margin: 0 }}><strong>Pas de bip ?</strong> Monte le volume <em>multimédia</em> (pas la sonnerie) avec les boutons du côté. Sur iPhone, vérifie aussi le bouton silencieux et le mode Concentration.</p>
+        </div>
+        <Button variant="secondary" onClick={() => { unlockAudio(); beep('go'); }}>🔊 Tester le son</Button>
         <Button block onClick={() => { unlockAudio(); setStarted(true); goTo(0); }}>C'est parti</Button>
       </div>
     );
@@ -166,7 +170,7 @@ export function SessionPlayer({ data }: { data: AppData }) {
         </div>
       ) : (
         <div className={s.controls}>
-          <Button variant="secondary" onClick={() => setPaused((p) => !p)}>{paused ? 'Reprendre' : 'Pause'}</Button>
+          <Button variant="secondary" onClick={() => { unlockAudio(); setPaused((p) => !p); }}>{paused ? 'Reprendre' : 'Pause'}</Button>
           <Button variant="secondary" onClick={() => goTo(idx + 1)}>Passer</Button>
           {ex && level && level !== 'easy' && (
             <Button variant="ghost" onClick={() => setEasier((e) => ({ ...e, [ex.id]: ORDER[ORDER.indexOf(level) - 1] }))}>Plus facile</Button>

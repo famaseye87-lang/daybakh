@@ -98,3 +98,10 @@ export function shoppingText(items: ShoppingItem[], title: string): string {
   }
   return lines.join('\n');
 }
+
+/** Régénère la liste en gardant les articles déjà cochés et ceux ajoutés à la main. */
+export function mergeShoppingLists(previous: ShoppingItem[], fresh: ShoppingItem[]): ShoppingItem[] {
+  const checked = new Set(previous.filter((i) => i.checked).map((i) => i.id));
+  const merged = fresh.map((i) => ({ ...i, checked: checked.has(i.id) }));
+  return [...merged, ...previous.filter((i) => i.custom)];
+}

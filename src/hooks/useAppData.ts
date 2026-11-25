@@ -10,6 +10,8 @@ export interface NutritionPrefs {
   /** Petit-déjeuner et collation : pour moi seule ou pour toute la famille (liste de courses) */
   breakfastScope: 'me' | 'family';
   smoothie: boolean;
+  /** Nombre de parts pour les repas en famille (sinon calculé d'après les âges du foyer) */
+  servings?: number;
 }
 export const DEFAULT_NUTRITION_PREFS: NutritionPrefs = { freeMeal: { day: 6, meal: 'dinner' }, breakfastScope: 'me', smoothie: true };
 import type { Profile, Measurement, CalcSnapshot, DailyLog, WorkoutLog, MealTag } from '../types';

@@ -67,6 +67,10 @@ Le workflow relance les tests, reconstruit et publie. Sur les téléphones, un b
 
 > Le dépôt contient uniquement le code et les contenus. Les données des utilisatrices ne quittent jamais leur téléphone.
 
+## Où sont mes données ?
+
+Chaque adresse a sa propre mémoire : le site en ligne, `localhost:5173` (npm run dev) et `localhost:4173` (npm run preview) ne partagent pas leurs données. Sur iPhone, l'onglet Safari et l'icône de l'écran d'accueil non plus. La navigation privée et les navigateurs intégrés aux applis (WhatsApp, Instagram…) effacent tout à la fermeture. Pour un usage réel : installer l'appli depuis le site en ligne et toujours l'ouvrir par l'icône.
+
 ## Sauvegarder ses données
 
 Moi → **Mes données** → « Exporter ma sauvegarde (JSON) ». Pour changer de téléphone : installer Daybakh sur le nouveau téléphone, puis Moi → Mes données → « Restaurer une sauvegarde ». Les photos s'exportent à part (Assiette → Journal photo → Exporter, ZIP).
@@ -97,6 +101,7 @@ Moi → **Mes données** → « Exporter ma sauvegarde (JSON) ». Pour changer d
 - [x] Livraison 6 — suivi du jour (eau en verres, sommeil + qualité, énergie, marche), message sommeil unique + conseils nuit courte, journal photo (1 photo par repas, compression 1280 px WebP/JPEG, conformité en 1 clic, galerie, espace utilisé, suppression proposée après 8 semaines, export ZIP), score de la semaine, 9 badges
 - [x] Livraison 7 — sauvegarde JSON + import vérifié (aperçu avant remplacement), CSV pour Excel (mesures, suivi), rappel mensuel de sauvegarde, guide d'installation iPhone/Android + bandeau, rappels dans l'agenda (.ics), protection contre l'effacement, menu Moi
 - [x] Étape 5 (v0.8) — vérification de la spécification, corrections : niveau d'activité modifiable, import CSV des mesures, option marche après renforcement
+- [x] v0.9 — retours de test : avertissement quand les données ne peuvent pas être gardées (navigateur intégré, navigation privée), restauration dès l'accueil, bips plus forts et compatibles avec le mode silencieux de l'iPhone + bouton « Tester le son », nombre de parts dans la liste de courses
 - [ ] Tests sur téléphone (installation, hors ligne, photos, bips, agenda) → v1.0
 
 ## Sources des calculs

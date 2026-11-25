@@ -93,3 +93,18 @@ describe('Import CSV des mesures', () => {
     expect(parseMeasurementsCsv('Nom;Age\nA;3')).toEqual({ error: 'Ce CSV n’a pas le format des mesures Daybakh (colonnes « Date » et « Poids (kg) »).' });
   });
 });
+
+import { browserContext } from '../storageHints';
+describe('Contexte du navigateur', () => {
+  it('navigateurs intégrés aux applis', () => {
+    expect(browserContext('Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 WhatsApp/2.23')).toBe('in-app');
+    expect(browserContext('Mozilla/5.0 (Linux; Android 14; SM-S911B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/120.0 Mobile Safari/537.36 Instagram 310.0')).toBe('in-app');
+  });
+  it('Chrome sur iPhone : pas d’installation possible', () => {
+    expect(browserContext('Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/120.0 Mobile/15E148 Safari/604.1')).toBe('ios-not-safari');
+  });
+  it('Safari et Chrome Android : normal', () => {
+    expect(browserContext('Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1')).toBe('normal');
+    expect(browserContext('Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Mobile Safari/537.36')).toBe('normal');
+  });
+});

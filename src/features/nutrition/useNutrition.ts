@@ -19,7 +19,8 @@ export function nutritionContext(data: AppData) {
     freeMeal: data.nutritionPrefs.freeMeal,
     smoothie: data.nutritionPrefs.smoothie
   });
-  const family = householdFactor(p.household);
+  const computedFamily = householdFactor(p.household);
+  const family = data.nutritionPrefs.servings ?? computedFamily;
   const todayMenu = menu.find((d) => d.day === isoWeekday(data.today))!;
-  return { week, menu, family, todayMenu, weekStart: mondayOf(day), prefs: data.nutritionPrefs };
+  return { week, menu, family, computedFamily, todayMenu, weekStart: mondayOf(day), prefs: data.nutritionPrefs };
 }
