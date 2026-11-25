@@ -26,8 +26,37 @@
   animation: pop-in 0.6s var(--ease-bounce) both;
 }
 .badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-3); }
-.badge { border: 2px dashed var(--c-border); border-radius: 20px; padding: var(--space-3); text-align: center; transition: transform 0.2s var(--ease-bounce); }
-.badgeOn { border: 2px solid var(--c-ink); background: var(--c-info-bg); box-shadow: var(--sticker-sm); }
+/* Badges façon wax : lisière en tissu en haut, icône dans un médaillon (disque écru cerclé d'un anneau indigo semé de pois safran et rouges). */
+.badge {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-2);
+  border: 2px dashed var(--c-border); border-radius: 20px;
+  padding: calc(var(--space-3) + 8px) var(--space-3) var(--space-3); text-align: center;
+}
+.badgeOn { --band: var(--c-pop); border: 2px solid var(--c-ink); background: var(--c-surface); box-shadow: var(--sticker-sm); }
+.badgeOn:nth-child(5n + 2) { --band: var(--c-indigo); }
+.badgeOn:nth-child(5n + 3) { --band: var(--c-accent); }
+.badgeOn:nth-child(5n + 4) { --band: var(--c-mint); }
+.badgeOn:nth-child(5n + 5) { --band: var(--c-fuchsia); }
+.badgeOn::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 10px;
+  border-bottom: 2px solid var(--c-ink);
+  background:
+    radial-gradient(circle, var(--c-cream) 0 1.6px, transparent 2px 3.4px, var(--c-cream) 3.8px 4.8px, transparent 5.2px) 0 0 / 12px 10px,
+    var(--band);
+}
 .badgeOff { opacity: 0.55; filter: grayscale(1); }
-.badgeIcon { font-size: 2.4rem; display: inline-block; }
+.badgeIcon {
+  width: 80px; height: 80px; flex: none; border-radius: 50%;
+  display: grid; place-items: center; font-size: 2.2rem; line-height: 1;
+  border: 2px dashed var(--c-border);
+}
+.badgeOn .badgeIcon {
+  border: 2px solid var(--c-ink); box-shadow: var(--sticker-sm);
+  background:
+    radial-gradient(circle, var(--c-cream) 0 25px, var(--c-ink) 25.5px 27px, transparent 27.5px) center / 100% 100% no-repeat,
+    radial-gradient(circle, var(--c-accent) 0 2.6px, transparent 3px) 0 0 / 14px 14px,
+    radial-gradient(circle, var(--c-pop) 0 2px, transparent 2.4px) 7px 7px / 14px 14px,
+    var(--c-indigo);
+}
 @keyframes pop-in { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
