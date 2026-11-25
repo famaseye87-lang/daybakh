@@ -20,3 +20,7 @@
 }
 .splash { min-height: 100dvh; display: grid; place-items: center; }
 .muted { color: var(--c-muted); }
+.menu { display: flex; flex-direction: column; }
+.menu a { display: flex; flex-direction: column; justify-content: center; min-height: 52px; padding: var(--space-2) 0; border-bottom: 1px dashed var(--c-border); color: var(--c-text); text-decoration: none; font-weight: 700; }
+.menu a:last-child { border-bottom: none; }
+.menuHint { color: var(--c-muted); font-weight: 400; font-size: var(--fs-sm); }

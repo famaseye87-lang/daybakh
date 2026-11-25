@@ -31,6 +31,9 @@ import { ShoppingPage } from './features/nutrition/ShoppingPage';
 import { BatchPage } from './features/nutrition/BatchPage';
 import { NutritionSettings } from './features/nutrition/NutritionSettings';
 import { JournalPage } from './features/journal/JournalPage';
+import { DataPage } from './features/settings/DataPage';
+import { InstallPage } from './features/settings/InstallPage';
+import { RemindersPage } from './features/settings/RemindersPage';
 import { BadgesPage } from './features/daily/WeekScoreCard';
 import { checkBadges } from './data/badgeService';
 import { buildWeek } from './domain/sport/week';
@@ -97,6 +100,9 @@ function MainApp({ profile }: { profile: Profile }) {
           <Route path="/progres/guide" element={<MeasureGuide />} />
           <Route path="/moi" element={<Me data={data} />} />
           <Route path="/moi/profil" element={<EditProfile data={data} />} />
+          <Route path="/moi/donnees" element={<DataPage data={data} lastExport={data.lastExportAt} />} />
+          <Route path="/moi/installation" element={<InstallPage />} />
+          <Route path="/moi/rappels" element={<RemindersPage data={data} />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

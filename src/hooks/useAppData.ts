@@ -30,6 +30,9 @@ export interface AppData {
   /** Badges à célébrer (affichés une fois) */
   newBadges: string[];
   sleepNoticeShown: boolean;
+  lastExportAt?: string;
+  onboardedAt?: string;
+  installBannerDismissed: boolean;
   /** Clés des alertes déjà lues (alert:<type>:<semaine>) */
   dismissedAlerts: Set<string>;
   /** Semaine de sport modifiée par l'utilisatrice */
@@ -63,6 +66,9 @@ export function useAppData(profile: Profile): AppData | undefined {
       measurements, snapshots, metas, dailyLogs, workoutLogs, mealRatings, dismissed, badges,
       newBadges: (metaValue('newBadges') as string[] | undefined) ?? [],
       sleepNoticeShown: !!metaValue('sleepNoticeShown'),
+      lastExportAt: metaValue('lastExportAt') as string | undefined,
+      onboardedAt: metaValue('onboardedAt') as string | undefined,
+      installBannerDismissed: !!metaValue('installBannerDismissed'),
       weekOverride: metaValue('weekPlan') as WeekOverride | undefined,
       sportWeekOffset: (metaValue('sportWeekOffset') as number | undefined) ?? 0,
       nutritionPrefs: { ...DEFAULT_NUTRITION_PREFS, ...((metaValue('nutritionPrefs') as Partial<NutritionPrefs> | undefined) ?? {}) }
@@ -86,6 +92,9 @@ export function useAppData(profile: Profile): AppData | undefined {
     badges: data.badges,
     newBadges: data.newBadges,
     sleepNoticeShown: data.sleepNoticeShown,
+    lastExportAt: data.lastExportAt,
+    onboardedAt: data.onboardedAt,
+    installBannerDismissed: data.installBannerDismissed,
     dismissedAlerts: new Set(data.dismissed),
     weekOverride: data.weekOverride,
     sportWeekOffset: data.sportWeekOffset,

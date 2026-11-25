@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { Button, Card } from '../../components/ui';
 import { db } from '../../data/db';
-import { saveMealPhoto, updateMealPhoto, deleteMealPhotos, storageEstimate, photosZip, downloadBlob } from '../../data/photos';
+import { saveMealPhoto, updateMealPhoto, deleteMealPhotos, storageEstimate, photosZip } from '../../data/photos';
+import { shareOrDownload } from '../../data/files';
 import { photosToPurge, formatBytes } from '../../domain/tracking/photos';
 import { mondayOf } from '../../domain/calc/recalc';
 import { weekDates } from '../../domain/tracking/score';
@@ -111,7 +112,7 @@ export function JournalPage({ data }: { data: AppData }) {
     setExporting(true);
     try {
       const all = await db.mealPhotos.orderBy('date').toArray();
-      downloadBlob(await photosZip(all), `daybakh-photos-${data.today}.zip`);
+      await shareOrDownload(await photosZip(all), `daybakh-photos-${data.today}.zip`);
     } finally {
       setExporting(false);
     }

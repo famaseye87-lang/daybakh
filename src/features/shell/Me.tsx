@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Stat, Button, LinkButton } from '../../components/ui';
 import { Header } from './Header';
-import { WEEKDAYS } from '../../domain/dates';
+import { WEEKDAYS, formatDateFR } from '../../domain/dates';
 import { resetAllData } from '../../data/repositories';
 import type { AppData } from '../../hooks/useAppData';
+import s from './shell.module.css';
 
 const dayName = (n: number) => WEEKDAYS.find((w) => w.value === n)?.long ?? '';
 
@@ -14,7 +15,7 @@ export function Me({ data }: { data: AppData }) {
   return (
     <>
       <Header />
-      <h1>Moi</h1>
+      <h1>{p.firstName ?? 'Moi'}</h1>
       <Card>
         <Stat label="Taille" value={`${p.heightCm} cm`} />
         <Stat label="Poids de départ" value={`${p.startWeightKg.toLocaleString('fr-FR')} kg`} />
@@ -24,13 +25,17 @@ export function Me({ data }: { data: AppData }) {
         <Stat label="Sommeil" value={`${p.sleepHours.toLocaleString('fr-FR')} h`} />
       </Card>
       <LinkButton to="/moi/profil">Modifier mon profil</LinkButton>
-      <div style={{ height: 12 }} />
+
       <Card>
-        <Link to="/a-propos">À propos de Daybakh</Link>
+        <nav className={s.menu} aria-label="Réglages">
+          <Link to="/moi/donnees">💾 Mes données (sauvegarde, CSV, restauration)<span className={s.menuHint}>{data.lastExportAt ? `Dernière sauvegarde : ${formatDateFR(data.lastExportAt)}` : 'Aucune sauvegarde'}</span></Link>
+          <Link to="/moi/rappels">⏰ Rappels dans mon agenda</Link>
+          <Link to="/moi/installation">📲 Installer Daybakh sur mon téléphone</Link>
+          <Link to="/progres/badges">🏅 Mes badges ({data.badges.length})</Link>
+          <Link to="/a-propos">☀️ À propos de Daybakh</Link>
+        </nav>
       </Card>
-      <Card tone="info">
-        <p>L'export/import des données et le guide d'installation arrivent dans une prochaine livraison.</p>
-      </Card>
+
       <Card>
         <h2>Effacer mes données</h2>
         {step === 0 && (
@@ -41,7 +46,7 @@ export function Me({ data }: { data: AppData }) {
         )}
         {step === 1 && (
           <>
-            <p><strong>Tout sera supprimé définitivement</strong> : profil, mesures, historique. Il n'existe aucune copie ailleurs.</p>
+            <p><strong>Tout sera supprimé définitivement</strong> : profil, mesures, historique, photos. Pense à exporter une sauvegarde avant.</p>
             <Button onClick={() => setStep(2)}>Je confirme</Button>{' '}
             <Button variant="ghost" onClick={() => setStep(0)}>Annuler</Button>
           </>

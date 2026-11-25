@@ -12,6 +12,7 @@ import { MealLines, PlateBadge } from '../nutrition/MealLines';
 import { DailyCard } from '../daily/DailyCard';
 import { SleepCard } from '../daily/SleepCard';
 import { WeekScoreCard, NewBadgeCard } from '../daily/WeekScoreCard';
+import { ExportReminderCard, InstallBanner } from '../settings/Banners';
 import { sportContext } from '../sport/useSport';
 import { sessionPath } from '../sport/SportHome';
 import { SESSION_LABEL } from '../../domain/sport/week';
@@ -56,6 +57,7 @@ export function Today({ data }: { data: AppData }) {
       <h1>{hello}</h1>
 
       <NewBadgeCard data={data} />
+      <ExportReminderCard data={data} />
 
       {showVictory && (
         <Card tone="success">
@@ -129,6 +131,7 @@ export function Today({ data }: { data: AppData }) {
       )}
 
       <WeekScoreCard data={data} />
+      <InstallBanner data={data} />
 
       <Card>
         <h2>Tes repères du moment</h2>
