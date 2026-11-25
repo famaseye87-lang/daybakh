@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Card, Stat, Button, LinkButton } from '../../components/ui';
 import { Header } from '../shell/Header';
 import { formatDateFR } from '../../domain/dates';
@@ -56,6 +57,9 @@ export function Today({ data }: { data: AppData }) {
     <>
       <Header />
       <h1>{hello}</h1>
+      <p style={{ margin: '8px 0 16px' }}>
+        <Link to="/moi/guide" style={{ fontWeight: 800, textDecoration: 'underline wavy var(--c-accent) 2px', textUnderlineOffset: 5 }}>📖 Mode d'emploi : l'essentiel en 2 minutes →</Link>
+      </p>
 
       <StorageWarning place="app" />
       <NewBadgeCard data={data} />
