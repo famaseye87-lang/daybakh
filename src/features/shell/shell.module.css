@@ -1,6 +1,5 @@
 .app { max-width: 560px; margin: 0 auto; padding: var(--space-4) var(--space-4) calc(112px + env(safe-area-inset-bottom)); }
 .header { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
-.header > :first-child { animation: spin-slow 40s linear infinite; }
 .headerTitle { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--c-brand); margin: 0; letter-spacing: 0.02em; }
 
 /* Barre d'onglets flottante en forme de pilule ; l'onglet actif a sa bulle safran. */
@@ -35,5 +34,4 @@
 .menu a { display: flex; flex-direction: column; justify-content: center; min-height: 52px; padding: var(--space-2) 0; border-bottom: 1px dashed var(--c-border); color: var(--c-text); text-decoration: none; font-weight: 700; }
 .menu a:last-child { border-bottom: none; }
 .menuHint { color: var(--c-muted); font-weight: 400; font-size: var(--fs-sm); }
-@keyframes spin-slow { to { transform: rotate(360deg); } }
 @keyframes bob { 0%, 100% { transform: translateY(-1px) scale(1.12); } 50% { transform: translateY(-4px) scale(1.12); } }
