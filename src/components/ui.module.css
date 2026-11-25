@@ -4,25 +4,16 @@
   border-radius: 999px; border: 2px solid var(--c-ink);
   font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: 0.02em; cursor: pointer;
   color: var(--c-on-action);
-  /* Tissu wax discret : petits « yeux » safran et rouge, pois fuchsia, semis de points écrus. */
-  background:
-    radial-gradient(circle, rgba(245, 179, 36, 0.5) 0 2.5px, transparent 3px 5.5px, rgba(233, 90, 66, 0.7) 6px 7.5px, transparent 8px) 0 0 / 36px 36px,
-    radial-gradient(circle, rgba(214, 60, 140, 0.65) 0 2.5px, transparent 3px) 18px 18px / 36px 36px,
-    radial-gradient(circle, rgba(255, 247, 234, 0.2) 0 1px, transparent 1.5px) 9px 9px / 9px 9px,
-    var(--c-action);
-  text-shadow: 0 1px 2px rgba(20, 19, 42, 0.55);
+  /* Fond uni : le texte du bouton reste bien lisible (pas de motif derrière). */
+  background: var(--c-action);
   box-shadow: var(--sticker-sm);
   transition: transform 0.15s var(--ease-bounce), box-shadow 0.15s ease;
 }
 .btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 3px 5px 0 var(--c-ink); }
 .btn:active:not(:disabled) { transform: translate(2px, 3px); box-shadow: 0 0 0 var(--c-ink); }
-@media (prefers-color-scheme: dark) { .btn { text-shadow: 0 0 3px rgba(255, 255, 255, 0.6); } }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .secondary {
-  background:
-    radial-gradient(circle, color-mix(in srgb, var(--c-pop) 16%, transparent) 0 2.5px, transparent 3px 5.5px, color-mix(in srgb, var(--c-accent) 30%, transparent) 6px 7.5px, transparent 8px) 0 0 / 36px 36px,
-    radial-gradient(circle, color-mix(in srgb, var(--c-fuchsia) 18%, transparent) 0 2.5px, transparent 3px) 18px 18px / 36px 36px,
-    var(--c-surface);
+  background: var(--c-surface);
   color: var(--c-action); border-color: var(--c-ink); text-shadow: none;
 }
 .ghost { background: transparent; text-shadow: none; color: var(--c-action); border-color: transparent; box-shadow: none; text-decoration: underline wavy var(--c-accent) 2px; text-underline-offset: 6px; }

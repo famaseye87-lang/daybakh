@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Stat, Button, LinkButton } from '../../components/ui';
+import { Card, Stat, Button, LinkButton, Choice } from '../../components/ui';
+import { getThemeChoice, setThemeChoice, type ThemeChoice } from '../../theme/theme';
 import { Header } from './Header';
 import { WEEKDAYS, formatDateFR } from '../../domain/dates';
 import { resetAllData } from '../../data/repositories';
@@ -12,6 +13,8 @@ const dayName = (n: number) => WEEKDAYS.find((w) => w.value === n)?.long ?? '';
 export function Me({ data }: { data: AppData }) {
   const p = data.profile;
   const [step, setStep] = useState<0 | 1 | 2>(0);
+  const [theme, setTheme] = useState<ThemeChoice>(getThemeChoice);
+  const chooseTheme = (t: ThemeChoice) => { setThemeChoice(t); setTheme(t); };
   return (
     <>
       <Header />
@@ -35,6 +38,20 @@ export function Me({ data }: { data: AppData }) {
           <Link to="/progres/badges">🏅 Mes badges ({data.badges.length})</Link>
           <Link to="/a-propos">☀️ À propos de Daybakh</Link>
         </nav>
+      </Card>
+
+      <Card>
+        <h2>Apparence</h2>
+        <Choice
+          label="Fond de l'appli"
+          value={theme}
+          onChange={chooseTheme}
+          options={[
+            { value: 'light', label: 'Clair' },
+            { value: 'dark', label: 'Sombre' },
+            { value: 'auto', label: 'Comme le téléphone' },
+          ]}
+        />
       </Card>
 
       <Card>

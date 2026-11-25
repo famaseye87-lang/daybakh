@@ -1,6 +1,7 @@
 /* Palette « Wax » — indigo, safran, rouge, émeraude, fuchsia, turquoise.
    Contrastes (WCAG AA) : blanc sur --c-action ≈ 10:1 ; texte sur fond ≈ 15:1 ; texte secondaire ≈ 6:1 */
 :root {
+  color-scheme: light;
   --c-brand: #d1402a;          /* rouge wax (décor, titre) */
   --c-action: #22358c;         /* indigo wax (boutons, liens) */
   --c-on-action: #ffffff;
@@ -44,28 +45,28 @@
   --fs-xxl: 2.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --c-brand: #ff7a5c;
-    --c-action: #9fb2ff;
-    --c-on-action: #14132a;
-    --c-on-accent: #14132a;
-    --c-alert: #ff8a7a;
-    --c-bg: #14132a;
-    --c-surface: #1f1d3d;
-    --c-surface-2: #2b2850;
-    --c-text: #fff5e6;
-    --c-muted: #c3bdd6;
-    --c-border: #3b3766;
-    --c-info-bg: #2b2850;
-    --c-success: #5fd3a6;
-    --chart-1: #e06f45;
-    --chart-2: #4c93d6;
-    --chart-grid: #4a3a2e;
-    --chart-surface: #2a211b;
-    --plate-protein: #a8432b;
-    --plate-veg: #2fa083;
-    --plate-starch: #b98a2c;
-    --shadow: none;
-  }
+/* Thème sombre : seulement si choisi dans Moi → Apparence (ou « comme le téléphone »). */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --c-brand: #ff7a5c;
+  --c-action: #9fb2ff;
+  --c-on-action: #14132a;
+  --c-on-accent: #14132a;
+  --c-alert: #ff8a7a;
+  --c-bg: #14132a;
+  --c-surface: #1f1d3d;
+  --c-surface-2: #2b2850;
+  --c-text: #fff5e6;
+  --c-muted: #c3bdd6;
+  --c-border: #3b3766;
+  --c-info-bg: #2b2850;
+  --c-success: #5fd3a6;
+  --chart-1: #e06f45;
+  --chart-2: #4c93d6;
+  --chart-grid: #4a3a2e;
+  --chart-surface: #2a211b;
+  --plate-protein: #a8432b;
+  --plate-veg: #2fa083;
+  --plate-starch: #b98a2c;
+  --shadow: none;
 }

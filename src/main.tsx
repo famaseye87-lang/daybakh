@@ -8,7 +8,10 @@ import '@fontsource/fredoka/latin-700.css';
 import './theme/tokens.css';
 import './theme/global.css';
 import './theme/fun.css';
+import { initTheme } from './theme/theme';
 import App from './App';
+
+initTheme();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

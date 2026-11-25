@@ -124,6 +124,7 @@
         "**Sur iPhone**, l'appli installée et l'onglet Safari ne partagent pas leurs données. Après l'installation, ouvre toujours Daybakh par son icône.",
         "**Mises à jour** : elles se font toutes seules. Pour voir la nouvelle version, ferme complètement l'appli puis rouvre-la. Si une nouvelle version est prête pendant que tu utilises l'appli, un bandeau te propose « Mettre à jour » (jamais en pleine séance).",
         "**Rappels** : Daybakh n'envoie pas de notifications. Crée un fichier de rappels qui s'ajoute à l'agenda de ton téléphone (pesée, séance, collation, courses, sauvegarde). Tu les modifies ou les supprimes dans l'agenda quand tu veux.",
+        "**Apparence** : le fond est clair par défaut. Dans Moi → Apparence, tu peux choisir un fond sombre, ou suivre le réglage de ton téléphone.",
         "**Un téléphone = un profil.** Si quelqu'un de ta famille veut utiliser Daybakh, il l'installe sur son propre téléphone."
       ],
       "links": [
