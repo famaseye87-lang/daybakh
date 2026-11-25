@@ -57,9 +57,11 @@ export function Today({ data }: { data: AppData }) {
     <>
       <Header />
       <h1>{hello}</h1>
+      {!data.guideOpened && (
       <p style={{ margin: '8px 0 16px' }}>
         <Link to="/moi/guide" style={{ fontWeight: 800, textDecoration: 'underline wavy var(--c-accent) 2px', textUnderlineOffset: 5 }}>📖 Mode d'emploi : l'essentiel en 2 minutes →</Link>
       </p>
+      )}
 
       <StorageWarning place="app" />
       <NewBadgeCard data={data} />

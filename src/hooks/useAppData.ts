@@ -35,6 +35,8 @@ export interface AppData {
   lastExportAt?: string;
   onboardedAt?: string;
   installBannerDismissed: boolean;
+  /** Le Mode d'emploi a déjà été ouvert : le lien de l'écran Aujourd'hui disparaît. */
+  guideOpened: boolean;
   /** Clés des alertes déjà lues (alert:<type>:<semaine>) */
   dismissedAlerts: Set<string>;
   /** Semaine de sport modifiée par l'utilisatrice */
@@ -71,6 +73,7 @@ export function useAppData(profile: Profile): AppData | undefined {
       lastExportAt: metaValue('lastExportAt') as string | undefined,
       onboardedAt: metaValue('onboardedAt') as string | undefined,
       installBannerDismissed: !!metaValue('installBannerDismissed'),
+      guideOpened: !!metaValue('guideOpened'),
       weekOverride: metaValue('weekPlan') as WeekOverride | undefined,
       sportWeekOffset: (metaValue('sportWeekOffset') as number | undefined) ?? 0,
       nutritionPrefs: { ...DEFAULT_NUTRITION_PREFS, ...((metaValue('nutritionPrefs') as Partial<NutritionPrefs> | undefined) ?? {}) }
@@ -97,6 +100,7 @@ export function useAppData(profile: Profile): AppData | undefined {
     lastExportAt: data.lastExportAt,
     onboardedAt: data.onboardedAt,
     installBannerDismissed: data.installBannerDismissed,
+    guideOpened: data.guideOpened,
     dismissedAlerts: new Set(data.dismissed),
     weekOverride: data.weekOverride,
     sportWeekOffset: data.sportWeekOffset,

@@ -1,6 +1,7 @@
-import { Fragment, type ReactNode } from 'react';
+import { Fragment, useEffect, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../../components/ui';
+import { setMeta } from '../../data/repositories';
 import { guide } from './guideText';
 import s from './guide.module.css';
 
@@ -10,6 +11,8 @@ function rich(text: string): ReactNode {
 }
 
 export function GuidePage() {
+  // Une fois le guide ouvert, le lien de l'écran Aujourd'hui n'est plus affiché (il reste dans Moi).
+  useEffect(() => { void setMeta('guideOpened', true); }, []);
   return (
     <>
       <p><Link to="/moi">← Moi</Link></p>
