@@ -2,8 +2,31 @@ import { Fragment, useEffect, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../../components/ui';
 import { setMeta } from '../../data/repositories';
-import { guide } from './guideText';
+import guideData from '../../content/guide.json';
 import s from './guide.module.css';
+
+/** Rubrique du Mode d'emploi (textes dans src/content/guide.json). */
+export interface GuideSection {
+  id: string;
+  icon: string;
+  title: string;
+  /** Encadré mis en avant, affiché avant la liste */
+  callout?: string;
+  items: string[];
+  outro?: string;
+  links?: { to: string; label: string }[];
+  /** Rubrique dépliée à l'ouverture de la page */
+  open?: boolean;
+}
+
+export interface Guide {
+  title: string;
+  intro: string;
+  sections: GuideSection[];
+  footer: string[];
+}
+
+const guide = guideData as Guide;
 
 /** Met en gras les passages entre ** … **. */
 function rich(text: string): ReactNode {

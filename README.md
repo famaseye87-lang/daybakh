@@ -84,7 +84,7 @@ Moi → **Mes données** → « Exporter ma sauvegarde (JSON) ». Pour changer d
 
 | Dossier | Rôle |
 |---|---|
-| `src/content/` | **Contenus modifiables sans toucher au code** : seuils, messages, profil d'exemple, guide de mesure, exercices (`exercises.json`), séances et progression (`workouts.json`), natation (`swim.json`), marche (`walk.json`), recettes (`recipes.json`), badges (`badges.json`) |
+| `src/content/` | **Contenus modifiables sans toucher au code** : seuils, messages, profil d'exemple, guide de mesure, exercices (`exercises.json`), séances et progression (`workouts.json`), natation (`swim.json`), marche (`walk.json`), recettes (`recipes.json`), badges (`badges.json`), mode d'emploi (`guide.json`) |
 | `src/domain/` | Calculs purs (formules sourcées) + tests dans `__tests__/` |
 | `src/data/` | Base locale (Dexie / IndexedDB) |
 | `src/features/` | Écrans, un dossier par module |
@@ -103,6 +103,7 @@ Moi → **Mes données** → « Exporter ma sauvegarde (JSON) ». Pour changer d
 - [x] Étape 5 (v0.8) — vérification de la spécification, corrections : niveau d'activité modifiable, import CSV des mesures, option marche après renforcement
 - [x] v0.9 — retours de test : avertissement quand les données ne peuvent pas être gardées (navigateur intégré, navigation privée), restauration dès l'accueil, bips plus forts et compatibles avec le mode silencieux de l'iPhone + bouton « Tester le son », nombre de parts dans la liste de courses
 - [x] v1.0 — tests sur téléphone validés (installation, données gardées, hors ligne, photos, bips, agenda, sauvegarde, mise à jour, nombre de parts)
+- [x] v1.1 — design wax (palette, police Fredoka, motifs, logo et icônes), page Mode d'emploi (Moi → Mode d'emploi, lien sur Aujourd'hui jusqu'à la première ouverture), textes du guide dans `src/content/guide.json`
 
 ## Sources des calculs
 
