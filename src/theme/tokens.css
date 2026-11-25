@@ -1,19 +1,20 @@
-/* Palette P1 « Soleil de Dakar » — contrastes vérifiés (WCAG AA) :
-   texte blanc sur --c-action : 5,4:1 ; texte sur fond : 15,1:1 ; texte secondaire : 6,1:1 */
+/* Palette « Wax » — indigo, safran, rouge, émeraude, fuchsia, turquoise.
+   Contrastes (WCAG AA) : blanc sur --c-action ≈ 10:1 ; texte sur fond ≈ 15:1 ; texte secondaire ≈ 6:1 */
 :root {
-  --c-brand: #e2603b;          /* terracotta (décor, icône) */
-  --c-action: #b8431f;         /* terracotta foncé (boutons, liens) */
+  --c-brand: #d1402a;          /* rouge wax (décor, titre) */
+  --c-action: #22358c;         /* indigo wax (boutons, liens) */
   --c-on-action: #ffffff;
-  --c-accent: #f2a93b;         /* safran */
-  --c-on-accent: #2b1e16;
-  --c-success: #2f7d5b;        /* vert baobab */
-  --c-bg: #fff6ec;             /* crème */
+  --c-accent: #f5b324;         /* jaune safran wax */
+  --c-on-accent: #1c1a33;
+  --c-success: #0f7a5a;        /* vert émeraude */
+  --c-alert: #b3261e;          /* messages d'erreur */
+  --c-bg: #fff7ea;             /* coton écru */
   --c-surface: #ffffff;
-  --c-surface-2: #fbeadb;
-  --c-text: #2b1e16;
-  --c-muted: #6b5b50;
-  --c-border: #ead9c8;
-  --c-info-bg: #fdf0d8;
+  --c-surface-2: #f8ead6;
+  --c-text: #1c1a33;           /* encre indigo-noir */
+  --c-muted: #5d5770;
+  --c-border: #e6d9c6;
+  --c-info-bg: #fff1cf;
 
   /* Graphiques — palette validée (CVD, contraste) avec le validateur dataviz */
   --chart-1: #b8431f;
@@ -45,16 +46,19 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --c-action: #f08a62;
-    --c-on-action: #1e1712;
-    --c-bg: #1e1712;
-    --c-surface: #2a211b;
-    --c-surface-2: #3a2c23;
-    --c-text: #fff3e6;
-    --c-muted: #cdbbaa;
-    --c-border: #4a3a2e;
-    --c-info-bg: #3a2c23;
-    --c-success: #6cc79c;
+    --c-brand: #ff7a5c;
+    --c-action: #9fb2ff;
+    --c-on-action: #14132a;
+    --c-on-accent: #14132a;
+    --c-alert: #ff8a7a;
+    --c-bg: #14132a;
+    --c-surface: #1f1d3d;
+    --c-surface-2: #2b2850;
+    --c-text: #fff5e6;
+    --c-muted: #c3bdd6;
+    --c-border: #3b3766;
+    --c-info-bg: #2b2850;
+    --c-success: #5fd3a6;
     --chart-1: #e06f45;
     --chart-2: #4c93d6;
     --chart-grid: #4a3a2e;

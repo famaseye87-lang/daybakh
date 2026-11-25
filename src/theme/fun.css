@@ -3,12 +3,16 @@
 
 :root {
   --font-display: 'Fredoka', 'Nunito', system-ui, sans-serif;
-  --c-ink: #2b1e16;              /* contour « sticker » */
-  --c-mint: #1f8a70;
-  --c-sky: #1a7fa8;
-  --c-pop: #e2603b;
-  --pattern-dot: rgba(226, 96, 59, 0.09);
-  --pattern-sun: rgba(242, 169, 59, 0.14);
+  --c-ink: #1c1a33;              /* contour « sticker », encre indigo */
+  /* Couleurs du wax */
+  --c-pop: #d1402a;              /* rouge */
+  --c-mint: #0f7a5a;             /* émeraude */
+  --c-sky: #0e8fa3;              /* turquoise */
+  --c-fuchsia: #c2266f;
+  --c-indigo: #22358c;
+  --pattern-a: rgba(34, 53, 140, 0.07);   /* cercles indigo */
+  --pattern-b: rgba(209, 64, 42, 0.08);   /* points rouges */
+  --pattern-sun: rgba(245, 179, 36, 0.16);
   --sticker: 3px 4px 0 var(--c-ink);
   --sticker-sm: 2px 3px 0 var(--c-ink);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -17,19 +21,23 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --c-ink: #000000;
-    --pattern-dot: rgba(240, 138, 98, 0.08);
-    --pattern-sun: rgba(242, 169, 59, 0.06);
+    --pattern-a: rgba(159, 178, 255, 0.07);
+    --pattern-b: rgba(255, 122, 92, 0.07);
+    --pattern-sun: rgba(245, 179, 36, 0.07);
   }
 }
 
-/* Fond : crème + petits points wax + deux soleils flous. */
+/* Fond : coton écru + motif wax discret (cercles concentriques « œil » et points) + deux soleils flous. */
 body {
   background-color: var(--c-bg);
   background-image:
     radial-gradient(circle at 92% -4%, var(--pattern-sun) 0, transparent 240px),
     radial-gradient(circle at -10% 60%, var(--pattern-sun) 0, transparent 220px),
-    radial-gradient(var(--pattern-dot) 1.6px, transparent 1.8px);
-  background-size: auto, auto, 18px 18px;
+    radial-gradient(circle, var(--pattern-b) 0 3px, transparent 3.5px 8px, var(--pattern-a) 8.5px 10.5px,
+      transparent 11px 15px, var(--pattern-a) 15.5px 17.5px, transparent 18px),
+    radial-gradient(circle, var(--pattern-b) 0 2px, transparent 2.5px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+  background-position: 0 0, 0 0, 0 0, 28px 28px;
   background-attachment: fixed;
 }
 
@@ -64,11 +72,6 @@ main > section:nth-of-type(4) { animation-delay: 0.15s; }
 main > section:nth-of-type(5) { animation-delay: 0.2s; }
 main > section:nth-of-type(n + 6) { animation-delay: 0.25s; }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0); }
-  25% { transform: rotate(-8deg); }
-  75% { transform: rotate(8deg); }
-}
 @keyframes bob {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-3px); }

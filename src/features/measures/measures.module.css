@@ -22,4 +22,4 @@
 .footer > * { flex: 1; }
 .spacer { height: 80px; }
 .muted { color: var(--c-muted); }
-.err { color: var(--c-action); font-weight: 700; }
+.err { color: var(--c-alert); font-weight: 700; }

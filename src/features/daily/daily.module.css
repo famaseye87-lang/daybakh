@@ -28,8 +28,6 @@
 .badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-3); }
 .badge { border: 2px dashed var(--c-border); border-radius: 20px; padding: var(--space-3); text-align: center; transition: transform 0.2s var(--ease-bounce); }
 .badgeOn { border: 2px solid var(--c-ink); background: var(--c-info-bg); box-shadow: var(--sticker-sm); }
-.badgeOn .badgeIcon { animation: wiggle 2.8s ease-in-out infinite; }
 .badgeOff { opacity: 0.55; filter: grayscale(1); }
 .badgeIcon { font-size: 2.4rem; display: inline-block; }
 @keyframes pop-in { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
-@keyframes wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }

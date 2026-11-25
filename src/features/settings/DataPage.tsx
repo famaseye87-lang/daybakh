@@ -66,7 +66,7 @@ export function DataPage({ data, lastExport }: { data: AppData; lastExport?: str
         <p style={{ color: 'var(--c-muted)' }}>Pour retrouver ton historique sur un nouveau téléphone. Les données actuelles seront remplacées.</p>
         <Button variant="secondary" onClick={() => input.current?.click()}>Choisir un fichier .json</Button>
         <input ref={input} type="file" accept="application/json,.json" style={{ display: 'none' }} onChange={(e) => onFile(e.target.files?.[0])} aria-label="Fichier de sauvegarde" />
-        {error && <p role="alert" style={{ color: 'var(--c-action)', fontWeight: 700, marginTop: 8 }}>{error}</p>}
+        {error && <p role="alert" style={{ color: 'var(--c-alert)', fontWeight: 700, marginTop: 8 }}>{error}</p>}
         {pending && (
           <div style={{ marginTop: 12 }}>
             <p><strong>Sauvegarde du {formatDateFR(pending.summary.exportedAt)}</strong></p>

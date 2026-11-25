@@ -24,16 +24,22 @@
   margin-bottom: var(--space-4);
   overflow: hidden;
 }
+/* Bande « lisière de wax » : couleur vive semée de petits points écrus. */
 .card::before {
-  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 7px;
-  background: var(--c-pop);
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 9px;
+  --band: var(--c-pop);
+  background:
+    radial-gradient(circle, rgba(255, 247, 234, 0.85) 0 1.6px, transparent 2px) 0 0 / 11px 9px,
+    var(--band);
 }
-.card:nth-of-type(4n + 2)::before { background: var(--c-accent); }
-.card:nth-of-type(4n + 3)::before { background: var(--c-mint); }
-.card:nth-of-type(4n + 4)::before { background: var(--c-sky); }
+.card:nth-of-type(5n + 2)::before { --band: var(--c-indigo); }
+.card:nth-of-type(5n + 3)::before { --band: var(--c-accent); }
+.card:nth-of-type(5n + 4)::before { --band: var(--c-mint); }
+.card:nth-of-type(5n + 5)::before { --band: var(--c-fuchsia); }
 .info { background: var(--c-info-bg); }
 .info::before {
-  background: repeating-linear-gradient(-45deg, var(--c-accent) 0 8px, var(--c-pop) 8px 16px) !important;
+  background: repeating-linear-gradient(90deg, var(--c-indigo) 0 14px, var(--c-accent) 14px 28px,
+    var(--c-pop) 28px 42px, var(--c-mint) 42px 56px, var(--c-fuchsia) 56px 70px) !important;
 }
 .success { border-color: var(--c-ink); }
 .success::before { background: var(--c-success) !important; height: 100%; width: 8px; right: auto; }
@@ -41,7 +47,7 @@
 .field { min-width: 0; display: flex; flex-direction: column; gap: var(--space-1); margin-bottom: var(--space-4); }
 .label { font-weight: 700; }
 .hint { color: var(--c-muted); font-size: var(--fs-sm); }
-.error { color: var(--c-action); font-size: var(--fs-sm); font-weight: 700; }
+.error { color: var(--c-alert); font-size: var(--fs-sm); font-weight: 700; }
 .input {
   min-height: var(--tap); padding: 0 var(--space-3);
   border: 2px solid var(--c-border); border-radius: 14px;

@@ -3,7 +3,7 @@
 .brand { font-size: var(--fs-xxl); font-weight: 800; color: var(--c-brand); margin: 0; letter-spacing: 0.5px; }
 .slogan { font-size: var(--fs-lg); font-weight: 700; margin: 0; }
 .muted { color: var(--c-muted); }
-.err { color: var(--c-action); font-weight: 700; font-size: var(--fs-sm); }
+.err { color: var(--c-alert); font-weight: 700; font-size: var(--fs-sm); }
 .h3 { font-size: var(--fs-md); font-weight: 800; margin: var(--space-4) 0 var(--space-1); }
 .row { display: grid; grid-template-columns: minmax(0,1fr) 96px 44px; gap: var(--space-2); align-items: end; }
 .grid2 { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 0 var(--space-3); }
