@@ -1,0 +1,16 @@
+# Dependabot : GitHub propose une mise à jour quand une dépendance a une faille connue,
+# et regroupe chaque mois les mises à jour mineures.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    groups:
+      mineures:
+        update-types: [minor, patch]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
