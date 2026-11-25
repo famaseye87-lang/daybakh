@@ -23,6 +23,13 @@
     radial-gradient(circle, #0e8fa3 0 3px, transparent 3.5px) 0 40px / 80px 80px,
     radial-gradient(circle, rgba(255, 247, 234, 0.28) 0 1.5px, transparent 2px) 20px 20px / 20px 20px,
     #22358c;
+  /* Version adoucie et plus petite, pour poser du texte dessus (barre d'onglets). */
+  --wax-fabric-soft:
+    radial-gradient(circle, rgba(245, 179, 36, 0.38) 0 3.5px, transparent 4px 7px, rgba(209, 64, 42, 0.5) 7.5px 9.5px,
+      transparent 10px 13px, rgba(245, 179, 36, 0.32) 13.5px 15px, transparent 15.5px) 0 0 / 52px 52px,
+    radial-gradient(circle, rgba(194, 38, 111, 0.55) 0 3.5px, transparent 4px) 26px 26px / 52px 52px,
+    radial-gradient(circle, rgba(255, 247, 234, 0.16) 0 1.3px, transparent 1.8px) 13px 13px / 13px 13px,
+    #22358c;
   --sticker: 3px 4px 0 var(--c-ink);
   --sticker-sm: 2px 3px 0 var(--c-ink);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
