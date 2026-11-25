@@ -10,6 +10,7 @@ import { TabBar } from './features/shell/TabBar';
 import { Today } from './features/today/Today';
 import { Me } from './features/shell/Me';
 import { About } from './features/about/About';
+import { GuidePage } from './features/guide/GuidePage';
 import { MeasuresPage } from './features/measures/MeasuresPage';
 import { MeasureForm } from './features/measures/MeasureForm';
 import { MeasureGuide } from './features/measures/MeasureGuide';
@@ -102,6 +103,7 @@ function MainApp({ profile }: { profile: Profile }) {
           <Route path="/moi/profil" element={<EditProfile data={data} />} />
           <Route path="/moi/donnees" element={<DataPage data={data} lastExport={data.lastExportAt} />} />
           <Route path="/moi/installation" element={<InstallPage />} />
+          <Route path="/moi/guide" element={<GuidePage />} />
           <Route path="/moi/rappels" element={<RemindersPage data={data} />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="*" element={<Navigate to="/" replace />} />

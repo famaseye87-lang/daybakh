@@ -28,6 +28,7 @@ export function Me({ data }: { data: AppData }) {
 
       <Card>
         <nav className={s.menu} aria-label="Réglages">
+          <Link to="/moi/guide">📖 Mode d'emploi<span className={s.menuHint}>L'essentiel en 2 minutes</span></Link>
           <Link to="/moi/donnees">💾 Mes données (sauvegarde, CSV, restauration)<span className={s.menuHint}>{data.lastExportAt ? `Dernière sauvegarde : ${formatDateFR(data.lastExportAt)}` : 'Aucune sauvegarde'}</span></Link>
           <Link to="/moi/rappels">⏰ Rappels dans mon agenda</Link>
           <Link to="/moi/installation">📲 Installer Daybakh sur mon téléphone</Link>
