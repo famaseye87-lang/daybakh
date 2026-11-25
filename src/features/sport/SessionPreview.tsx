@@ -32,6 +32,7 @@ export function SessionPreview({ data }: { data: AppData }) {
       <Card>
         <p><strong>{fmtMin(tl.totalSeconds)}</strong> · {rounds} tour{rounds > 1 ? 's' : ''}{k !== 'hiit' && <> · {ctx.params.work} s d'effort / {ctx.params.rest} s de récupération</>}</p>
         <p className={s.small}>Échauffement et étirements inclus. Bois quelques gorgées entre les tours.</p>
+        {k !== 'hiit' && data.profile.equipment.includes('treadmill') && <p className={s.small}>En option, après la séance : 10 à 15 min de marche tranquille sur le tapis de course.</p>}
         {k !== 'hiit' && (
           <Checkbox checked={short} onChange={setShort}>Séance courte (20-25 min){ctx.shortNight ? ' — conseillée après une nuit courte' : ''}</Checkbox>
         )}

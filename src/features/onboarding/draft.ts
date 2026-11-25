@@ -137,6 +137,7 @@ export function draftToProfile(d: Draft, now: string, programStart: string, disc
     caffeine: d.caffeine ?? { drinks: false, cupsPerDay: 0 },
     sleepHours: d.sleepHours ?? 7,
     sleepInterrupted: !!d.sleepInterrupted,
+    napOverride: d.napOverride,
     healthDisclaimerAcceptedAt: disclaimerAt,
     programStartDate: programStart,
     createdAt: now,

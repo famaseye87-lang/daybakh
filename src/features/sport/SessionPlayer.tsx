@@ -114,6 +114,7 @@ export function SessionPlayer({ data }: { data: AppData }) {
         <h1>{painStop ? 'Séance arrêtée' : 'Bravo, séance terminée ! 🎉'}</h1>
         <p>{painStop ? 'Tu as bien fait d’écouter ton corps. Si la douleur persiste, consulte un professionnel de santé.' : 'Chaque séance compte. Daybakh : ça va aller, et ça va même très bien.'}</p>
         <p>Environ {Math.max(1, Math.round(elapsed.current / 60))} min d'activité.</p>
+        {!painStop && k !== 'hiit' && data.profile.equipment.includes('treadmill') && <p className={s.muted}>Envie de prolonger ? 10 à 15 min de marche tranquille sur le tapis, en option.</p>}
         <Choice label="Comment c'était ?" value={feeling} onChange={setFeeling}
           options={[{ value: 'easy', label: 'Facile' }, { value: 'ok', label: 'Ça allait' }, { value: 'hard', label: 'Difficile' }]}
           hint={feeling === 'hard' ? 'Normal au début. Si c’est souvent difficile, tu peux rester une semaine de plus sur ce niveau (onglet Sport).' : undefined} />

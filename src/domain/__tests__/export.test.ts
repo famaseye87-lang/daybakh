@@ -76,3 +76,20 @@ describe('Rappels .ics', () => {
     expect(ics).toContain('DTEND:20261125T191000');
   });
 });
+
+import { parseMeasurementsCsv } from '../export/csv';
+describe('Import CSV des mesures', () => {
+  it('aller-retour avec l’export', () => {
+    const r = parseMeasurementsCsv(measurementsCsv(parts.measurements));
+    expect('measurements' in r && r.measurements).toEqual([
+      { date: '2026-11-24', weightKg: 82, waistCm: 95.5, bellyCm: undefined, hipsCm: undefined, armRightCm: undefined, armLeftCm: undefined, thighCm: undefined },
+      { date: '2026-12-07', weightKg: 81.2, waistCm: undefined, bellyCm: undefined, hipsCm: undefined, armRightCm: undefined, armLeftCm: undefined, thighCm: undefined }
+    ]);
+  });
+  it('lignes invalides ignorées, mauvais format refusé', () => {
+    const r = parseMeasurementsCsv('Date;Poids (kg)\n2026-12-01;80,5\n01/12/2026;80\n2026-12-08;beaucoup\n');
+    expect('measurements' in r && r.measurements.length).toBe(1);
+    expect('skipped' in r && r.skipped).toBe(2);
+    expect(parseMeasurementsCsv('Nom;Age\nA;3')).toEqual({ error: 'Ce CSV n’a pas le format des mesures Daybakh (colonnes « Date » et « Poids (kg) »).' });
+  });
+});

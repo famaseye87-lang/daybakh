@@ -1,6 +1,7 @@
 import { db } from './db';
 import { buildBackup, type Backup } from '../domain/export/backup';
 import { measurementsCsv, dailyCsv } from '../domain/export/csv';
+import type { Measurement } from '../types';
 import { shareOrDownload } from './files';
 
 export const LAST_EXPORT_KEY = 'lastExportAt';
@@ -62,4 +63,12 @@ export async function persistStatus(): Promise<boolean | undefined> {
   } catch {
     return undefined;
   }
+}
+
+/** Ajoute des mesures importées depuis un CSV ; une date déjà présente n'est pas dupliquée. */
+export async function importMeasurements(ms: Measurement[]): Promise<{ added: number; existing: number }> {
+  const have = new Set((await db.measurements.toArray()).map((m) => m.date));
+  const fresh = ms.filter((m) => !have.has(m.date));
+  await db.measurements.bulkPut(fresh);
+  return { added: fresh.length, existing: ms.length - fresh.length };
 }

@@ -144,6 +144,10 @@ export function StepSport({ d, set, errors }: StepProps) {
       <MultiChoice label="Ton matériel" values={d.equipment ?? []} onChange={(v) => set({ equipment: v })}
         options={[{ value: 'mat', label: 'Tapis de sol' }, { value: 'treadmill', label: 'Tapis de course' }, { value: 'chair', label: 'Chaise solide' }]} />
 
+      <Choice label="Niveau d'activité" value={d.napOverride ?? 0} onChange={(v) => set({ napOverride: v === 0 ? undefined : v })}
+        options={[{ value: 0, label: 'Automatique' }, { value: 1.4, label: '1,4' }, { value: 1.6, label: '1,6' }, { value: 1.8, label: '1,8' }, { value: 2.0, label: '2,0' }]}
+        hint="Automatique : calculé à partir de tes séances (EFSA 2013 : 1,4 peu actif · 1,6 modérément actif · 1,8 actif · 2,0 très actif). Une vie de famille très active peut justifier le niveau au-dessus." />
+
       <h3 className={s.h3}>Activités fixes</h3>
       <p className={s.muted}>Natation, marche, cours… une ligne par activité.</p>
       {fixed.map((a, i) => (

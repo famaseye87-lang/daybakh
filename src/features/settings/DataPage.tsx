@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card } from '../../components/ui';
-import { exportJson, exportCsv, importBackup, persistStatus } from '../../data/backupService';
+import { exportJson, exportCsv, importBackup, persistStatus, importMeasurements } from '../../data/backupService';
+import { runChecks } from '../../data/recalcService';
+import { parseMeasurementsCsv } from '../../domain/export/csv';
 import { requestPersistentStorage } from '../../data/repositories';
 import { parseBackup, type Backup, type BackupSummary } from '../../domain/export/backup';
 import { formatDateFR } from '../../domain/dates';
@@ -13,6 +15,18 @@ export function DataPage({ data, lastExport }: { data: AppData; lastExport?: str
   const [error, setError] = useState<string | null>(null);
   const [persisted, setPersisted] = useState<boolean | undefined>();
   const input = useRef<HTMLInputElement>(null);
+  const csvInput = useRef<HTMLInputElement>(null);
+  const [csvMsg, setCsvMsg] = useState<string | null>(null);
+  const onCsv = async (f?: File) => {
+    setCsvMsg(null);
+    if (!f) return;
+    const r = parseMeasurementsCsv(await f.text());
+    if (csvInput.current) csvInput.current.value = '';
+    if ('error' in r) return setCsvMsg(r.error);
+    const res = await importMeasurements(r.measurements);
+    await runChecks(data.today);
+    setCsvMsg(`${res.added} mesure${res.added > 1 ? 's' : ''} ajoutée${res.added > 1 ? 's' : ''}${res.existing ? `, ${res.existing} déjà présente${res.existing > 1 ? 's' : ''}` : ''}${r.skipped ? `, ${r.skipped} ligne${r.skipped > 1 ? 's' : ''} ignorée${r.skipped > 1 ? 's' : ''} (format incorrect)` : ''}.`);
+  };
   useEffect(() => { persistStatus().then(setPersisted); }, []);
 
   const onFile = async (f?: File) => {
@@ -65,6 +79,14 @@ export function DataPage({ data, lastExport }: { data: AppData; lastExport?: str
             <Button variant="ghost" onClick={() => setPending(null)}>Annuler</Button>
           </div>
         )}
+      </Card>
+
+      <Card>
+        <h2>Importer des mesures (CSV)</h2>
+        <p style={{ color: 'var(--c-muted)' }}>Ajoute des mesures depuis un fichier CSV au format Daybakh (colonnes « Date » et « Poids (kg) », puis les tours facultatifs). Les dates déjà présentes ne sont pas modifiées.</p>
+        <Button variant="secondary" onClick={() => csvInput.current?.click()}>Choisir un fichier .csv</Button>
+        <input ref={csvInput} type="file" accept=".csv,text/csv" style={{ display: 'none' }} onChange={(e) => onCsv(e.target.files?.[0])} aria-label="Fichier CSV de mesures" />
+        {csvMsg && <p role="status" style={{ marginTop: 8 }}>{csvMsg}</p>}
       </Card>
 
       <Card>

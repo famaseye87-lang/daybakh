@@ -96,7 +96,8 @@ Moi → **Mes données** → « Exporter ma sauvegarde (JSON) ». Pour changer d
 - [x] Livraison 5 — nutrition : 26 recettes ≤ 30 min (moitié sénégalaises allégées, moitié françaises), menus de la semaine calés sur les jours de sport (assiette sport / légère, schéma), restes du dîner au déjeuner, 3 variantes, repas libre, smoothie vert optionnel, portions selon la famille, batch cooking du samedi + mini-batch du mercredi, liste de courses par rayon (cochable, ajout, partage)
 - [x] Livraison 6 — suivi du jour (eau en verres, sommeil + qualité, énergie, marche), message sommeil unique + conseils nuit courte, journal photo (1 photo par repas, compression 1280 px WebP/JPEG, conformité en 1 clic, galerie, espace utilisé, suppression proposée après 8 semaines, export ZIP), score de la semaine, 9 badges
 - [x] Livraison 7 — sauvegarde JSON + import vérifié (aperçu avant remplacement), CSV pour Excel (mesures, suivi), rappel mensuel de sauvegarde, guide d'installation iPhone/Android + bandeau, rappels dans l'agenda (.ics), protection contre l'effacement, menu Moi
-- [ ] Étape 5 — vérification finale sur téléphone (installation, hors ligne, photos, ton des messages)
+- [x] Étape 5 (v0.8) — vérification de la spécification, corrections : niveau d'activité modifiable, import CSV des mesures, option marche après renforcement
+- [ ] Tests sur téléphone (installation, hors ligne, photos, bips, agenda) → v1.0
 
 ## Sources des calculs
 
