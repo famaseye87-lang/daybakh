@@ -1,7 +1,7 @@
 {
   "name": "daybakh",
   "private": true,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "type": "module",
   "description": "Daybakh — ta forme, ton rythme, ta victoire. PWA de suivi forme et rééquilibrage alimentaire.",
   "scripts": {

@@ -21,9 +21,12 @@
 .block { width: 100%; }
 
 /* Cartes « sticker » façon wax : contour net, ombre décalée, lisière en tissu wax
-   et grand motif « œil » discret dans le coin. La couleur change d'une carte à l'autre. */
+   et grand motif « œil » très discret dans le coin.
+   Couleurs (règle 60/30/10) : fond lait et cartes blanches, indigo pour la structure,
+   safran pour ce qui est choisi ou mis en avant. Lisière indigo, verte pour une réussite,
+   safran pour un conseil. */
 .card {
-  --band: var(--c-pop);
+  --band: var(--c-band);
   position: relative; z-index: 0;
   background: var(--c-surface); border: 2px solid var(--c-ink);
   border-radius: 22px; padding: calc(var(--space-4) + 12px) var(--space-4) var(--space-4);
@@ -31,10 +34,6 @@
   margin-bottom: var(--space-4);
   overflow: hidden;
 }
-.card:nth-of-type(5n + 2) { --band: var(--c-indigo); }
-.card:nth-of-type(5n + 3) { --band: var(--c-accent); }
-.card:nth-of-type(5n + 4) { --band: var(--c-mint); }
-.card:nth-of-type(5n + 5) { --band: var(--c-fuchsia); }
 /* Lisière : petits « yeux » écrus (point + anneau) sur la couleur de la carte. */
 .card::before {
   content: ''; position: absolute; left: 0; right: 0; top: 0; height: 14px;
@@ -48,14 +47,10 @@
   content: ''; position: absolute; z-index: -1; pointer-events: none;
   top: -70px; right: -70px; width: 190px; height: 190px; border-radius: 50%;
   background:
-    radial-gradient(circle, color-mix(in srgb, var(--band) 22%, transparent) 0 10px, transparent 10.5px),
-    repeating-radial-gradient(circle, transparent 0 16px, color-mix(in srgb, var(--band) 16%, transparent) 16.5px 24px, transparent 24.5px 32px);
+    radial-gradient(circle, color-mix(in srgb, var(--band) 10%, transparent) 0 10px, transparent 10.5px),
+    repeating-radial-gradient(circle, transparent 0 16px, color-mix(in srgb, var(--band) 7%, transparent) 16.5px 24px, transparent 24.5px 32px);
 }
 .card.info { background: var(--c-info-bg); --band: var(--c-accent); }
-.card.info::before {
-  background: repeating-linear-gradient(90deg, var(--c-indigo) 0 14px, var(--c-accent) 14px 28px,
-    var(--c-pop) 28px 42px, var(--c-mint) 42px 56px, var(--c-fuchsia) 56px 70px);
-}
 .card.success { border-color: var(--c-ink); --band: var(--c-success); }
 .card.success::before { height: 100%; width: 10px; right: auto; border-bottom: none; border-right: 2px solid var(--c-ink); background-size: 10px 14px, auto; background-position: -2px 0, 0 0; }
 .card.success { padding-left: calc(var(--space-4) + 10px); padding-top: var(--space-4); }

@@ -9,19 +9,19 @@
   --c-on-accent: #1c1a33;
   --c-success: #0f7a5a;        /* vert émeraude */
   --c-alert: #b3261e;          /* messages d'erreur */
-  --c-bg: #fff7ea;             /* coton écru */
-  --c-surface: #ffffff;
-  --c-surface-2: #f8ead6;
+  --c-bg: #efe4d1;             /* sable (choix de Fama) */
+  --c-surface: #fbf6ec;        /* cartes crème, moins éblouissantes */
+  --c-surface-2: #ecdcc2;
   --c-text: #1c1a33;           /* encre indigo-noir */
   --c-muted: #5d5770;
-  --c-border: #e6d9c6;
+  --c-border: #dccbb0;
   --c-info-bg: #fff1cf;
 
   /* Graphiques — palette validée (CVD, contraste) avec le validateur dataviz */
   --chart-1: #b8431f;
   --chart-2: #1a7fa8;
   --chart-grid: #ead9c8;
-  --chart-surface: #ffffff;
+  --chart-surface: #fbf6ec;
   /* Assiette — palette validée (toutes les paires, daltonisme) */
   --plate-protein: #b8431f;
   --plate-veg: #1f8a70;

@@ -10,9 +10,12 @@
   --c-sky: #0e8fa3;              /* turquoise */
   --c-fuchsia: #c2266f;
   --c-indigo: #22358c;
-  --pattern-a: rgba(34, 53, 140, 0.07);   /* cercles indigo */
-  --pattern-b: rgba(209, 64, 42, 0.08);   /* points rouges */
-  --pattern-sun: rgba(245, 179, 36, 0.16);
+  /* Fond : un seul ton (indigo très léger) pour rester calme ; le safran ne sert qu'aux deux halos. */
+  --pattern-a: rgba(34, 53, 140, 0.06);   /* cercles indigo */
+  --pattern-b: rgba(34, 53, 140, 0.05);   /* points indigo */
+  --pattern-sun: rgba(245, 179, 36, 0.12);
+  /* Lisière des cartes : indigo partout (couleur principale) ; vert = réussite, safran = conseil. */
+  --c-band: #22358c;
   --c-cream: #fff7ea;
   /* Tissu wax : fond indigo, « yeux » concentriques safran/rouge, pois fuchsia et émeraude, semis de points écrus. */
   --wax-fabric:
@@ -37,8 +40,9 @@
 
 :root[data-theme='dark'] {
   --c-ink: #000000;
-  --pattern-a: rgba(159, 178, 255, 0.07);
-  --pattern-b: rgba(255, 122, 92, 0.07);
+  --pattern-a: rgba(159, 178, 255, 0.06);
+  --pattern-b: rgba(159, 178, 255, 0.05);
+  --c-band: #3d52c4;
   --pattern-sun: rgba(245, 179, 36, 0.07);
 }
 

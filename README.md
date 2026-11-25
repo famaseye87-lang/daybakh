@@ -105,6 +105,7 @@ Moi → **Mes données** → « Exporter ma sauvegarde (JSON) ». Pour changer d
 - [x] v1.0 — tests sur téléphone validés (installation, données gardées, hors ligne, photos, bips, agenda, sauvegarde, mise à jour, nombre de parts)
 - [x] v1.1 — design wax (palette, police Fredoka, motifs, logo et icônes), page Mode d'emploi (Moi → Mode d'emploi, lien sur Aujourd'hui jusqu'à la première ouverture), textes du guide dans `src/content/guide.json`
 - [x] v1.2 — fond clair par défaut et choix de l'apparence (Moi → Apparence : clair, sombre ou comme le téléphone), boutons et barre d'onglets sur fond uni pour mieux les lire
+- [x] v1.2.1 — couleurs mieux agencées (règle 60/30/10) : fond sable et cartes crème, lisière des cartes en indigo partout (vert = réussite, safran = conseil), motif du fond d'un seul ton, titre Daybakh en indigo
 
 ## Sources des calculs
 
