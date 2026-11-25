@@ -102,7 +102,7 @@ Moi → **Mes données** → « Exporter ma sauvegarde (JSON) ». Pour changer d
 - [x] Livraison 7 — sauvegarde JSON + import vérifié (aperçu avant remplacement), CSV pour Excel (mesures, suivi), rappel mensuel de sauvegarde, guide d'installation iPhone/Android + bandeau, rappels dans l'agenda (.ics), protection contre l'effacement, menu Moi
 - [x] Étape 5 (v0.8) — vérification de la spécification, corrections : niveau d'activité modifiable, import CSV des mesures, option marche après renforcement
 - [x] v0.9 — retours de test : avertissement quand les données ne peuvent pas être gardées (navigateur intégré, navigation privée), restauration dès l'accueil, bips plus forts et compatibles avec le mode silencieux de l'iPhone + bouton « Tester le son », nombre de parts dans la liste de courses
-- [ ] Tests sur téléphone (installation, hors ligne, photos, bips, agenda) → v1.0
+- [x] v1.0 — tests sur téléphone validés (installation, données gardées, hors ligne, photos, bips, agenda, sauvegarde, mise à jour, nombre de parts)
 
 ## Sources des calculs
 
