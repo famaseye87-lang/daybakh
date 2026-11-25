@@ -94,7 +94,7 @@
 .chip:active { transform: scale(0.94); }
 .chipOn {
   background: var(--c-accent); border-color: var(--c-ink); color: var(--c-on-accent);
-  box-shadow: var(--sticker-sm); transform: rotate(-2deg);
+  box-shadow: var(--sticker-sm);
 }
 .chipOn::before { content: '✓ '; }
 
