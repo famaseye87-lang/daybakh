@@ -9,6 +9,9 @@ import msg from '../../content/messages.json';
 import { activeAlerts } from '../progress/alerts';
 import { nutritionContext } from '../nutrition/useNutrition';
 import { MealLines, PlateBadge } from '../nutrition/MealLines';
+import { DailyCard } from '../daily/DailyCard';
+import { SleepCard } from '../daily/SleepCard';
+import { WeekScoreCard, NewBadgeCard } from '../daily/WeekScoreCard';
 import { sportContext } from '../sport/useSport';
 import { sessionPath } from '../sport/SportHome';
 import { SESSION_LABEL } from '../../domain/sport/week';
@@ -51,6 +54,8 @@ export function Today({ data }: { data: AppData }) {
     <>
       <Header />
       <h1>{hello}</h1>
+
+      <NewBadgeCard data={data} />
 
       {showVictory && (
         <Card tone="success">
@@ -99,6 +104,9 @@ export function Today({ data }: { data: AppData }) {
         </Card>
       )}
 
+      <DailyCard data={data} />
+      <SleepCard data={data} />
+
       <Card>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
           <h2 style={{ margin: 0 }}>Ton assiette du jour</h2>
@@ -106,7 +114,10 @@ export function Today({ data }: { data: AppData }) {
         </div>
         <MealLines day={nut.todayMenu} snackTime={p.mealTimes.snack} />
         <div style={{ height: 8 }} />
-        <LinkButton variant="secondary" to="/assiette">Voir l'assiette</LinkButton>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <LinkButton variant="secondary" to="/assiette">Assiette</LinkButton>
+          <LinkButton variant="secondary" to="/assiette/journal">📸 Photo</LinkButton>
+        </div>
       </Card>
 
       {needsMeasure && (
@@ -117,14 +128,13 @@ export function Today({ data }: { data: AppData }) {
         </Card>
       )}
 
+      <WeekScoreCard data={data} />
+
       <Card>
         <h2>Tes repères du moment</h2>
         <Stat label="Repère calorique" value={`${n(sm.intake.kcal)} kcal`} />
         <Stat label="Protéines" value={`${sm.protein.min}–${sm.protein.max} g`} />
         <Stat label="Boissons" value={`${n(sm.water.min, 1)}–${n(sm.water.max, 1)} L`} />
-      </Card>
-      <Card tone="info">
-        <p>Le suivi de l'eau, du sommeil et le journal photo arrivent dans la prochaine livraison.</p>
       </Card>
     </>
   );

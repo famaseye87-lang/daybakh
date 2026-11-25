@@ -17,7 +17,7 @@ export function SleepLinkCard({ data }: { data: AppData }) {
   const weeks = [...sleep, ...energy, ...sessions, ...meals, ...weight].map((p) => p.week).sort();
   if (!weeks.length) return null;
   const domain: [string, string] = [weeks[0], weeks[weeks.length - 1]];
-  const later = 'Se remplira avec ton suivi quotidien (prochaine livraison).';
+  const later = 'Se remplit avec « Mon suivi du jour » sur l’écran Aujourd’hui.';
 
   return (
     <Card>

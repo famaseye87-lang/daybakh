@@ -1,0 +1,17 @@
+.row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-2) 0; }
+.stepper { display: flex; align-items: center; gap: var(--space-3); }
+.round { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--c-action); background: transparent; color: var(--c-action); font-size: 1.4rem; font-weight: 800; cursor: pointer; }
+.round:disabled { opacity: 0.4; }
+.value { min-width: 64px; text-align: center; font-weight: 800; font-size: var(--fs-lg); }
+.glasses { display: flex; flex-wrap: wrap; gap: 4px; margin: var(--space-2) 0; }
+.glass { width: 22px; height: 28px; border: 2px solid var(--c-action); border-top: none; border-radius: 0 0 6px 6px; position: relative; overflow: hidden; }
+.glassFull::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 75%; background: var(--chart-2); }
+.muted { color: var(--c-muted); font-size: var(--fs-sm); }
+.section { border-top: 1px dashed var(--c-border); padding-top: var(--space-3); margin-top: var(--space-3); }
+.scoreHead { display: flex; align-items: center; gap: var(--space-4); }
+.scoreNum { font-size: 2.5rem; font-weight: 800; color: var(--c-action); line-height: 1; }
+.badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-3); }
+.badge { border: 2px solid var(--c-border); border-radius: var(--radius); padding: var(--space-3); text-align: center; }
+.badgeOn { border-color: var(--c-accent); background: var(--c-info-bg); }
+.badgeOff { opacity: 0.55; }
+.badgeIcon { font-size: 2rem; display: block; }

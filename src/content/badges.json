@@ -1,0 +1,14 @@
+{
+  "_doc": "Badges de motivation. Modifiable sans toucher au code (textes). Les règles d'obtention sont dans src/domain/tracking/badges.ts.",
+  "badges": [
+    { "id": "first-session", "icon": "🌱", "name": "Premier pas", "text": "Ta première séance est faite. Le plus dur, c'est de commencer !" },
+    { "id": "first-measure", "icon": "📏", "name": "Point de départ", "text": "Tes premières mesures sont notées : on a un repère pour voir le chemin parcouru." },
+    { "id": "full-week", "icon": "⭐", "name": "Semaine complète", "text": "Toutes les séances prévues de la semaine sont faites. Bravo !" },
+    { "id": "milestone-5", "icon": "🏅", "name": "Premier palier", "text": "−5 % depuis le départ : un vrai bénéfice pour ta santé." },
+    { "id": "swim-10", "icon": "🏊", "name": "10 vendredis à la piscine", "text": "Dix séances de natation : l'eau devient ton élément." },
+    { "id": "water-4w", "icon": "💧", "name": "4 semaines d'eau", "text": "4 semaines de suite à bien t'hydrater, au moins 5 jours sur 7." },
+    { "id": "comeback", "icon": "🔁", "name": "Daybakh, tu es revenu·e !", "text": "Après une pause, tu as repris. C'est ça, la vraie régularité." },
+    { "id": "journal-7", "icon": "📸", "name": "Une semaine d'assiettes", "text": "7 jours avec au moins une photo de repas. Tu apprends à regarder ton assiette." },
+    { "id": "sleep-14", "icon": "🌙", "name": "À l'écoute de ton sommeil", "text": "14 nuits notées : de quoi mieux comprendre ton énergie." }
+  ]
+}

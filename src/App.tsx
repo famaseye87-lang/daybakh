@@ -30,6 +30,11 @@ import { RecipeList } from './features/nutrition/RecipeList';
 import { ShoppingPage } from './features/nutrition/ShoppingPage';
 import { BatchPage } from './features/nutrition/BatchPage';
 import { NutritionSettings } from './features/nutrition/NutritionSettings';
+import { JournalPage } from './features/journal/JournalPage';
+import { BadgesPage } from './features/daily/WeekScoreCard';
+import { checkBadges } from './data/badgeService';
+import { buildWeek } from './domain/sport/week';
+import { waterGoalGlasses } from './domain/tracking/score';
 import { Logo } from './components/Logo';
 import s from './features/shell/shell.module.css';
 
@@ -48,6 +53,21 @@ function MainApp({ profile }: { profile: Profile }) {
   useEffect(() => {
     if (today) runChecks(today);
   }, [today]);
+  // Badges : vérifiés quand l'historique change.
+  const sig = data ? `${data.workoutLogs.length}-${data.measurements.length}-${data.dailyLogs.length}-${data.mealRatings.length}-${data.dailyLogs.reduce((t, l) => t + l.waterGlasses, 0)}` : '';
+  useEffect(() => {
+    if (!data) return;
+    checkBadges({
+      today: data.today,
+      startWeightKg: data.profile.startWeightKg,
+      plan: buildWeek(data.profile, data.weekOverride),
+      workouts: data.workoutLogs,
+      logs: data.dailyLogs,
+      measurements: data.measurements,
+      photos: data.mealRatings,
+      waterGoal: waterGoalGlasses(data.summary.water.min)
+    });
+  }, [sig]);
   if (!data) return <Splash />;
   return (
     <HashRouter>
@@ -69,6 +89,8 @@ function MainApp({ profile }: { profile: Profile }) {
           <Route path="/assiette/courses" element={<ShoppingPage data={data} />} />
           <Route path="/assiette/batch" element={<BatchPage data={data} />} />
           <Route path="/assiette/reglages" element={<NutritionSettings data={data} />} />
+          <Route path="/assiette/journal" element={<JournalPage data={data} />} />
+          <Route path="/progres/badges" element={<BadgesPage data={data} />} />
           <Route path="/progres" element={<MeasuresPage data={data} />} />
           <Route path="/progres/mesure" element={<MeasureForm data={data} />} />
           <Route path="/progres/mesure/:id" element={<MeasureForm data={data} />} />

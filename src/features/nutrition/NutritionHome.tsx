@@ -48,6 +48,7 @@ export function NutritionHome({ data }: { data: AppData }) {
         <LinkButton variant="secondary" to="/assiette/courses">Liste de courses</LinkButton>
         <LinkButton variant="secondary" to="/assiette/batch">Batch cooking</LinkButton>
         <LinkButton variant="secondary" to="/assiette/recettes">Recettes</LinkButton>
+        <LinkButton variant="secondary" to="/assiette/journal">Journal photo</LinkButton>
       </div>
 
       <Card tone="info">

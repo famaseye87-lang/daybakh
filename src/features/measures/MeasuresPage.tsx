@@ -10,6 +10,7 @@ import s from './measures.module.css';
 import { AlertsCard } from '../progress/AlertsCard';
 import { ChartsCard } from '../progress/ChartsCard';
 import { SleepLinkCard } from '../progress/SleepLinkCard';
+import { WeekScoreCard } from '../daily/WeekScoreCard';
 
 function DeltaText({ v, unit, label }: { v?: number; unit: string; label: string }) {
   if (v === undefined) return null;
@@ -51,6 +52,7 @@ export function MeasuresPage({ data }: { data: AppData }) {
       </div>
 
       <AlertsCard data={data} />
+      <WeekScoreCard data={data} />
 
       {target && progress !== undefined && (
         <Card>

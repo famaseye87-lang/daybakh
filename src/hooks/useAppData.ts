@@ -24,7 +24,12 @@ export interface AppData {
   dailyLogs: DailyLog[];
   workoutLogs: WorkoutLog[];
   /** Métadonnées des photos (sans les images) */
-  mealRatings: { date: string; meal: MealTag; conformity?: 'yes' | 'almost' | 'no' }[];
+  mealRatings: { id?: number; date: string; meal: MealTag; conformity?: 'yes' | 'almost' | 'no'; bytes: number; note?: string }[];
+  /** Badges obtenus */
+  badges: { id: string; earnedAt: string }[];
+  /** Badges à célébrer (affichés une fois) */
+  newBadges: string[];
+  sleepNoticeShown: boolean;
   /** Clés des alertes déjà lues (alert:<type>:<semaine>) */
   dismissedAlerts: Set<string>;
   /** Semaine de sport modifiée par l'utilisatrice */
@@ -41,20 +46,23 @@ export interface AppData {
 export function useAppData(profile: Profile): AppData | undefined {
   const today = useToday();
   const data = useLiveQuery(async () => {
-    const [measurements, snapshots, metas, dailyLogs, workoutLogs, photos, allMeta] = await Promise.all([
+    const [measurements, snapshots, metas, dailyLogs, workoutLogs, photos, allMeta, badges] = await Promise.all([
       db.measurements.orderBy('date').toArray(),
       db.calcSnapshots.orderBy('date').toArray(),
       db.meta.bulkGet([META.goalReachedAt, META.goalCelebrated, META.pendingRecalc]),
       db.dailyLogs.orderBy('date').toArray(),
       db.workoutLogs.orderBy('date').toArray(),
       db.mealPhotos.orderBy('date').toArray(),
-      db.meta.toArray()
+      db.meta.toArray(),
+      db.badges.toArray()
     ]);
-    const mealRatings = photos.map((ph) => ({ date: ph.date, meal: ph.meal, conformity: ph.conformity }));
+    const mealRatings = photos.map((ph) => ({ id: ph.id, date: ph.date, meal: ph.meal, conformity: ph.conformity, bytes: ph.bytes, note: ph.note }));
     const dismissed = allMeta.filter((m) => m.key.startsWith('alert:')).map((m) => m.key);
     const metaValue = (k: string) => allMeta.find((m) => m.key === k)?.value;
     return {
-      measurements, snapshots, metas, dailyLogs, workoutLogs, mealRatings, dismissed,
+      measurements, snapshots, metas, dailyLogs, workoutLogs, mealRatings, dismissed, badges,
+      newBadges: (metaValue('newBadges') as string[] | undefined) ?? [],
+      sleepNoticeShown: !!metaValue('sleepNoticeShown'),
       weekOverride: metaValue('weekPlan') as WeekOverride | undefined,
       sportWeekOffset: (metaValue('sportWeekOffset') as number | undefined) ?? 0,
       nutritionPrefs: { ...DEFAULT_NUTRITION_PREFS, ...((metaValue('nutritionPrefs') as Partial<NutritionPrefs> | undefined) ?? {}) }
@@ -75,6 +83,9 @@ export function useAppData(profile: Profile): AppData | undefined {
     dailyLogs: data.dailyLogs,
     workoutLogs: data.workoutLogs,
     mealRatings: data.mealRatings,
+    badges: data.badges,
+    newBadges: data.newBadges,
+    sleepNoticeShown: data.sleepNoticeShown,
     dismissedAlerts: new Set(data.dismissed),
     weekOverride: data.weekOverride,
     sportWeekOffset: data.sportWeekOffset,
